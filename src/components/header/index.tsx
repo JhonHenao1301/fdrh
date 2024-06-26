@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div className="bg-sky-700 w-full">
-      <div className="flex justify-between items-center max-w-3xl p-4 header">
+      <div className="flex justify-between items-center max-w-3xl p-4 m-auto">
         <img
           src="./Alliance_logo_standard_white.png"
           className="col-span-1 w-36 h-fit justify-self-center md:col-span-2 md:w-44"
