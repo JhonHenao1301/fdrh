@@ -1,51 +1,51 @@
 const PoliciesTable = () => {
   return (
     <table className="w-full border border-collapse rounded-md border-slate-400 max-h-80 flex flex-col gap-4 overflow-auto px-4 py-2 text-xs text-justify">
-      <h2 className="text-lg">
+      <td className="text-lg">
         <strong className="font-extrabold">EDUCATION SUPPORT POLICY</strong>
-      </h2>
+      </td>
       <ol>
         <li>
           <strong>Introduction</strong>
         </li>
       </ol>
-      <p>
+      <td>
         The Alliance of Bioversity International and CIAT (hereinafter referred
         to as "the Alliance") is committed to championing employee development
         for both professional advancement and personal growth. One of the
         mechanisms to honor this commitment is to support employees in obtaining
         higher education qualifications.
-      </p>
-      <p>
+      </td>
+      <td>
         The Alliance believes that providing employees with Education Support
         will strengthen employee engagement, performance, and retention.
         Moreover, the Alliance recognizes that a highly skilled workforce
         provides a competitive advantage that allows us to rapidly adapt to
         shifting organizational priorities.
-      </p>
-      <p>
+      </td>
+      <td>
         In this document, the Alliance outlines Education Support and the
         guidelines that underline its access.
-      </p>
+      </td>
       <ol start={2}>
         <li>
           <strong>Purpose</strong>
         </li>
       </ol>
-      <p>
+      <td>
         The purpose of this Policy is to define and establish rules and provide
         a procedure under which staff can receive Education Support.
-      </p>
+      </td>
 
       <ol start={3}>
         <li>
           <strong>Scope</strong>
         </li>
       </ol>
-      <p>
+      <td>
         This Policy applies to Internationally Recruited and Nationally
         Recruited Staff:
-      </p>
+      </td>
       <ul>
         <li>Individuals employed and administered by the Alliance.</li>
         <li>
@@ -59,7 +59,7 @@ const PoliciesTable = () => {
           programs, or agencies), unless otherwise agreed among the parties.
         </li>
       </ul>
-      <p>This Policy does not apply to</p>
+      <td>This Policy does not apply to</td>
       <ul>
         <li>
           Individuals employed by another institution (CGIAR entities,
@@ -115,58 +115,58 @@ const PoliciesTable = () => {
           <strong>Definitions</strong>
         </li>
       </ol>
-      <p>
+      <td>
         <strong>Higher education programs:</strong>Post-secondary education
         delivered by educational establishments, subject to progressive
         curriculum guidelines and that grant academic degrees or titles
         according to country regulations.
-      </p>
-      <p>
+      </td>
+      <td>
         <strong>Promissory note:</strong>A signed document based on local law
         that outlines the conditions for the Education Support reimbursement and
         the conditions under which the Education Support will be repaid by the
         employee.
-      </p>
+      </td>
 
       <ol start={6}>
         <li>
           <strong>EDUCATION SUPPORT FRAMEWORK</strong>
         </li>
       </ol>
-      <p>
+      <td>
         <strong>6.1 Education support</strong>
-      </p>
-      <p>
+      </td>
+      <td>
         Education Support provides staff with up to 50% reimbursement of the
         cost of eligible qualifications of a maximum amount that will be decided
         yearly based on budget availability and approved requests.
-      </p>
-      <p>
+      </td>
+      <td>
         In the event an employee is granted Education Support and he/she also
         receives additional financial support or allowances from the Alliance to
         cover eligible educational expenses for the same academic period, the
         combined support will not exceed 100% of eligible expenses.
-      </p>
-      <p>
+      </td>
+      <td>
         The Education Support initiative will open once per year in the first
         quarter of the year. A second call may take place in Quarter 3 if budget
         is not allocated fully in the initial call.
-      </p>
-      <p>
+      </td>
+      <td>
         This program is contingent upon the annual allocation of funds for this
         purpose. This benefit does not constitute salary income for any legal
         purpose. Likewise, the support does not constitute an acquired right
         since it is granted on a discretionary basis and is subject to review
         and periodic adjustment.
-      </p>
+      </td>
 
-      <p>
+      <td>
         <strong>6.2 Eligibility</strong>
-      </p>
-      <p>
+      </td>
+      <td>
         To apply for Education Support, employees must meet the following
         criteria:
-      </p>
+      </td>
       <ul>
         <li>Be full-time or part-time staff of the Alliance.</li>
         <li>Have at least one year of tenure within the Organization.</li>
@@ -177,36 +177,36 @@ const PoliciesTable = () => {
         <li>Not have a live disciplinary action.</li>
       </ul>
 
-      <p>
+      <td>
         <strong>6.3 Eligible qualifications</strong>
-      </p>
-      <p>
+      </td>
+      <td>
         Eligible qualifications for Education Support are higher education
         programs offered by officially accredited academic institutions, such as
         BA and BS degrees, post-graduate diplomas, master's, and PhD.
-      </p>
-      <p>
+      </td>
+      <td>
         The qualifications must be related to the role, career development of
         the employee, or the areas of work, objectives, or strategy of the
         Alliance.
-      </p>
-      <p>
+      </td>
+      <td>
         To avoid doubt, professional memberships, certifications, training, and
         language training are not eligible for Education Support.
-      </p>
+      </td>
 
-      <p>
+      <td>
         <strong>6.4. Eligible expenses</strong>
-      </p>
-      <p>
+      </td>
+      <td>
         Staff can claim fees and tuition for eligible qualifications. Books,
         travel, living expenses, or any other type of expenses are not eligible
         under this Policy.
-      </p>
+      </td>
 
-      <p>
+      <td>
         <strong>6.5 Study leave</strong>
-      </p>
+      </td>
       <ul>
         <li>
           Employees can apply for study leave to attend higher education

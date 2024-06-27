@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import PoliciesTable from "../components/PoliciesTable";
 
 const Home = () => {
-  const [clearBtn, setClearBtn] = useState(false);
+  const [enableClearBtn, setEnableClearBtn] = useState(false);
+  document.querySelector("form");
+  const form = new FormData();
+  const resnoId = form.get("resno");
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { resno } = event.target as HTMLFormElement;
+    if (resno.value) {
+      console.log(resno.value);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6 mb-8">
@@ -26,50 +37,55 @@ const Home = () => {
           education, you can find below he eligibility criteria, the steps to
           submit sour request and the Education Support Policy.
         </p>
-        <p>
-          <strong className="text-sky-700 font-extrabold">Eligibility</strong>
-          <ul className="flex flex-col gap-4 mt-2">
-            <li className="">
-              At least a year's tenure within the organization by the time the
-              academic period for which they are requesting support begins.
-            </li>
-            <li>
-              "Effective" or "highly effective" performance rating in the last
-              year (for staff who joined the Alliance on or before June 30 of
-              the previous year).
-            </li>
-            <li>Does not have current disciplinary action.</li>
-            <li>
-              Qualifications related to the employee's role, career development,
-              areas of work and objectives, or the Alliance's strategic plans.
-            </li>
-          </ul>
-        </p>
-        <p>
+        <strong className="text-sky-700 font-extrabold">Eligibility</strong>
+        <ul className="flex flex-col gap-4 mt-2">
+          <li className="">
+            At least a year's tenure within the organization by the time the
+            academic period for which they are requesting support begins.
+          </li>
+          <li>
+            "Effective" or "highly effective" performance rating in the last
+            year (for staff who joined the Alliance on or before June 30 of the
+            previous year).
+          </li>
+          <li>Does not have current disciplinary action.</li>
+          <li>
+            Qualifications related to the employee's role, career development,
+            areas of work and objectives, or the Alliance's strategic plans.
+          </li>
+        </ul>
+        <p className="mt-1">
           <strong className="text-sky-700 font-extrabold">
-            To submit your request:
+            To submit your request
           </strong>
-          <ul className="flex flex-col gap-4 mt-2">
-            <li>
-              Have available the information related to the training such as
-              name of the institution, costs, dates, etc. Please take into
-              account that the call cover all year (first and second semester).
-            </li>
-            <li>
-              Review the Education Support policy, where you can find
-              eligibility criteria and the process.
-            </li>
-            <li>Enter your Alliance ID number on the box and click "Enter".</li>
-            <li>
-              Fill out the online Education Support form and send your request
-              (PDF or physical format) endorsed by your supervisor to Adriana
-              Cardona Adriana-cardona@cgiar.org.
-            </li>
-          </ul>
         </p>
+        <ul className="flex flex-col gap-4 mt-2">
+          <li>
+            Have available the information related to the training such as name
+            of the institution, costs, dates, etc. Please take into account that
+            the call cover all year (first and second semester).
+          </li>
+          <li>
+            Review the Education Support policy, where you can find eligibility
+            criteria and the process.
+          </li>
+          <li>Enter your Alliance ID number on the box and click "Enter".</li>
+          <li>
+            Fill out the online Education Support form and send your request
+            (PDF or physical format) endorsed by your supervisor to Adriana
+            Cardona Adriana-cardona@cgiar.org.
+          </li>
+        </ul>
         <PoliciesTable />
-        <form action="submit" className="flex flex-col items-center gap-4 mt-4">
-          <label htmlFor="resno">Employee ID Number</label>
+        <form
+          id="form"
+          action="submit"
+          onSubmit={(e) => handleSubmit(e)}
+          className="flex flex-col items-center gap-4 mt-4"
+        >
+          <label htmlFor="resno" className="text-sky-700 font-bold">
+            Employee ID Number
+          </label>
           <input
             type="number"
             name="resno"
@@ -79,13 +95,13 @@ const Home = () => {
           <div className="flex gap-2">
             <button
               type="submit"
-              className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2"
+              className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2 text-sm"
             >
               Enter
             </button>
             <button
-              disabled={!clearBtn}
-              className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2 disabled:bg-opacity-30"
+              disabled={!enableClearBtn}
+              className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2 disabled:bg-opacity-30 text-sm"
             >
               Clear
             </button>
