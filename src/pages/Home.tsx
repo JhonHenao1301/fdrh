@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import PoliciesTable from "../components/PoliciesTable";
 
 const Home = () => {
   return (
@@ -23,8 +24,8 @@ const Home = () => {
           submit sour request and the Education Support Policy.
         </p>
         <p>
-          <strong>Eligibility</strong>
-          <ul className="list-disc list-inside flex flex-col gap-4 mt-2">
+          <strong className="text-sky-700 font-extrabold">Eligibility</strong>
+          <ul className="flex flex-col gap-4 mt-2">
             <li className="">
               At least a year's tenure within the organization by the time the
               academic period for which they are requesting support begins.
@@ -42,8 +43,10 @@ const Home = () => {
           </ul>
         </p>
         <p>
-          <strong>To submit your request:</strong>
-          <ul className="list-disc list-inside flex flex-col gap-4 mt-2">
+          <strong className="text-sky-700 font-extrabold">
+            To submit your request:
+          </strong>
+          <ul className="flex flex-col gap-4 mt-2">
             <li>
               Have available the information related to the training such as
               name of the institution, costs, dates, etc. Please take into
@@ -55,13 +58,13 @@ const Home = () => {
             </li>
             <li>Enter your Alliance ID number on the box and click "Enter".</li>
             <li>
-              {" "}
               Fill out the online Education Support form and send your request
               (PDF or physical format) endorsed by your supervisor to Adriana
               Cardona Adriana-cardona@cgiar.org.
             </li>
           </ul>
         </p>
+        <PoliciesTable />
       </div>
     </div>
   );
