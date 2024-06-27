@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Header from "../components/Header";
 import PoliciesTable from "../components/PoliciesTable";
 
 const Home = () => {
+  const [clearBtn, setClearBtn] = useState(false);
+
   return (
     <div className="flex flex-col gap-6 mb-8">
       <Header />
-      <div className="flex flex-col gap-4 max-w-3xl text-justify m-auto px-4">
+      <div className="flex flex-col gap-4 max-w-3xl text-justify m-auto px-8">
         <p>
           The Alliance of Bioversity International and CIAT, recognizes that its
           staff are fundamental to its success. As a research organization, it
@@ -65,6 +68,29 @@ const Home = () => {
           </ul>
         </p>
         <PoliciesTable />
+        <form action="submit" className="flex flex-col items-center gap-4 mt-4">
+          <label htmlFor="resno">Employee ID Number</label>
+          <input
+            type="number"
+            name="resno"
+            id="resno"
+            className="border rounded-md max-w-48 p-2 text-sm"
+          />
+          <div className="flex gap-2">
+            <button
+              type="submit"
+              className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2"
+            >
+              Enter
+            </button>
+            <button
+              disabled={!clearBtn}
+              className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2 disabled:bg-opacity-30"
+            >
+              Clear
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
