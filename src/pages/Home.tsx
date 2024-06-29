@@ -1,18 +1,40 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
 import PoliciesTable from "../components/PoliciesTable";
+import { Toaster, toast } from "sonner";
 
 const Home = () => {
   const [enableClearBtn, setEnableClearBtn] = useState(false);
-  document.querySelector("form");
-  const form = new FormData();
-  const resnoId = form.get("resno");
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const inputValue = event.target.value;
+
+    if (inputValue.length > 0) {
+      setEnableClearBtn(true);
+      return;
+    }
+    setEnableClearBtn(false);
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { resno } = event.target as HTMLFormElement;
-    if (resno.value) {
-      console.log(resno.value);
+    const form = event.currentTarget;
+    const regexCIAT: RegExp = /^.{5}$/;
+    const regexBIO: RegExp = /^BIO.{5}$/;
+    if (form) {
+      const formData = new FormData(form);
+      const resno = formData.get("resno") as string;
+      if (resno) {
+        if (regexCIAT.test(resno) || regexBIO.test(resno)) {
+          console.log(resno);
+          // Here intrduce the rest of the function
+        } else {
+          toast.error("Introduce a valid value");
+        }
+      } else {
+        toast.error("Input must be filled");
+      }
     }
   };
 
@@ -87,9 +109,9 @@ const Home = () => {
             Employee ID Number
           </label>
           <input
-            type="number"
+            type="text"
             name="resno"
-            id="resno"
+            onChange={(e) => handleChange(e)}
             className="border rounded-md max-w-48 p-2 text-sm"
           />
           <div className="flex gap-2">
@@ -107,6 +129,7 @@ const Home = () => {
             </button>
           </div>
         </form>
+        <Toaster richColors />
       </div>
     </div>
   );
