@@ -1,9 +1,11 @@
 import { useState } from "react";
 import PoliciesTable from "../components/PoliciesTable";
 import { Toaster, toast } from "sonner";
+import { Link, useNavigate } from "react-router-dom";
 
 const Application = () => {
   const [enableClearBtn, setEnableClearBtn] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -26,9 +28,10 @@ const Application = () => {
       const resno = formData.get("resno") as string;
       if (resno) {
         if (regexCIAT.test(resno) || regexBIO.test(resno)) {
+          navigate(`/application/${resno}`);
           console.log(resno);
-          // Here introduce the rest of the function
           form.reset();
+          // Here introduce the rest of the function
         } else {
           toast.error("Introduce a valid value");
         }
