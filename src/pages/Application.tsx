@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PoliciesTable from "../components/PoliciesTable";
 import { Toaster, toast } from "sonner";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Application = () => {
   const [enableClearBtn, setEnableClearBtn] = useState(false);
@@ -106,7 +106,7 @@ const Application = () => {
         onSubmit={(e) => handleSubmit(e)}
         className="flex flex-col items-center gap-4 mt-4"
       >
-        <label htmlFor="resno" className="text-sky-700 font-bold">
+        <label htmlFor="resno" className="text-primary-30 font-bold">
           Employee ID Number
         </label>
         <input
@@ -116,15 +116,12 @@ const Application = () => {
           className="border rounded-md max-w-48 p-2 text-sm"
         />
         <div className="flex gap-2">
-          <button
-            type="submit"
-            className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2 text-sm"
-          >
+          <button type="submit" className="btn">
             Enter
           </button>
           <button
             disabled={!enableClearBtn}
-            className="border rounded-md bg-sky-700 text-slate-100 py-1 px-2 disabled:bg-opacity-30 text-sm"
+            className="btn disabled:hover:border-primary-10 disabled:opacity-[.50]"
           >
             Clear
           </button>

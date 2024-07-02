@@ -15,8 +15,6 @@ const AppRoutes = () => {
     { path: "/application", element: <Application /> },
     { path: "/application/:id", element: <ApplicationForm /> },
     { path: "/*", element: <NotFoundPage /> },
-    // { path: "/application/:id", element: <ApplicationForm />}
-    // { path: "/application/:id", element: <ApplicationForm />}
   ]);
 
   return routes;
@@ -24,7 +22,7 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <div>
+    <div className="text-primary-text">
       <Header />
       <AppRoutes />
     </div>
