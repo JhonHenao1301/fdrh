@@ -8,8 +8,8 @@ export default {
       },
     },
     colors: {
-      "primary-10": "#BBDEFB",
-      "primary-20": "#2196F3",
+      "primary-10": "#bae5fd",
+      "primary-20": "#0e9be9",
       "primary-30": "#0369a1",
       "primary-text": "#212121",
       accent: "#607D8B",

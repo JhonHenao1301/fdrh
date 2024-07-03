@@ -113,7 +113,7 @@ const Application = () => {
           type="text"
           name="resno"
           onChange={(e) => handleChange(e)}
-          className="border rounded-md max-w-48 p-2 text-sm"
+          className="border border-primary-10 rounded-xl max-w-48 p-2 text-sm"
         />
         <div className="flex gap-2">
           <button type="submit" className="btn">
