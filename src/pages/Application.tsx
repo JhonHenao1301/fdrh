@@ -43,7 +43,7 @@ const Application = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-w-3xl text-justify my-8 m-auto px-6">
+    <div className="flex flex-col gap-4 max-w-3xl text-justify py-8 m-auto px-6">
       <p>
         The Alliance of Bioversity International and CIAT, recognizes that its
         staff are fundamental to its success. As a research organization, it is
@@ -107,14 +107,17 @@ const Application = () => {
         onSubmit={(e) => handleSubmit(e)}
         className="flex flex-col items-center gap-4 mt-4"
       >
-        <label htmlFor="resno" className="text-primary-30 font-extrabold">
+        <label
+          htmlFor="resno"
+          className="text-primary-30 font-extrabold dark:text-primary-10"
+        >
           Employee ID Number
         </label>
         <input
           type="text"
           name="resno"
           onChange={(e) => handleChange(e)}
-          className="border border-gray-20 rounded-xl max-w-48 p-2 text-sm"
+          className="border border-gray-20 rounded-xl max-w-48 p-2 text-sm dark:bg-primary-50"
         />
         <div className="flex gap-2">
           <button type="submit" className="btn">
