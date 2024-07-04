@@ -34,6 +34,7 @@ const Application = () => {
           // Here introduce the rest of the function
         } else {
           toast.error("Introduce a valid value");
+          form.reset();
         }
       } else {
         toast.error("Input must be filled");
@@ -42,7 +43,7 @@ const Application = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-w-3xl text-justify my-8 m-auto px-8">
+    <div className="flex flex-col gap-4 max-w-3xl text-justify my-8 m-auto px-6">
       <p>
         The Alliance of Bioversity International and CIAT, recognizes that its
         staff are fundamental to its success. As a research organization, it is
@@ -106,14 +107,14 @@ const Application = () => {
         onSubmit={(e) => handleSubmit(e)}
         className="flex flex-col items-center gap-4 mt-4"
       >
-        <label htmlFor="resno" className="text-primary-30 font-bold">
+        <label htmlFor="resno" className="text-primary-30 font-extrabold">
           Employee ID Number
         </label>
         <input
           type="text"
           name="resno"
           onChange={(e) => handleChange(e)}
-          className="border border-primary-10 rounded-xl max-w-48 p-2 text-sm"
+          className="border border-gray-20 rounded-xl max-w-48 p-2 text-sm"
         />
         <div className="flex gap-2">
           <button type="submit" className="btn">
