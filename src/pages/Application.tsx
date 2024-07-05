@@ -12,6 +12,7 @@ const Application = () => {
     const inputValue = event.target.value;
 
     if (inputValue.length > 0) {
+      console.log(inputValue);
       setEnableClearBtn(true);
       return;
     }
@@ -43,7 +44,7 @@ const Application = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-w-3xl text-justify py-8 m-auto px-6">
+    <div className="flex flex-col gap-4 max-w-3xl h-inherit text-justify py-8 m-auto px-6">
       <p>
         The Alliance of Bioversity International and CIAT, recognizes that its
         staff are fundamental to its success. As a research organization, it is
@@ -115,6 +116,7 @@ const Application = () => {
         </label>
         <input
           type="text"
+          id="resno"
           name="resno"
           onChange={(e) => handleChange(e)}
           className="border border-gray-20 rounded-xl max-w-48 p-2 text-sm dark:bg-primary-50"
@@ -124,6 +126,7 @@ const Application = () => {
             Enter
           </button>
           <button
+            type="reset"
             disabled={!enableClearBtn}
             className="btn disabled:hover:border-primary-10 disabled:opacity-[.50]"
           >
