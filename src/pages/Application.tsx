@@ -12,11 +12,21 @@ const Application = () => {
     const inputValue = event.target.value;
 
     if (inputValue.length > 0) {
-      console.log(inputValue);
       setEnableClearBtn(true);
       return;
     }
     setEnableClearBtn(false);
+  };
+
+  const handleReset = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    const inputValue: NodeList = document.getElementsByName("resno");
+    if (inputValue) {
+      inputValue[0].value = "";
+      setEnableClearBtn(false);
+    }
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -126,7 +136,9 @@ const Application = () => {
             Enter
           </button>
           <button
-            type="reset"
+            onClick={(e) => {
+              handleReset(e);
+            }}
             disabled={!enableClearBtn}
             className="btn disabled:hover:border-primary-10 disabled:opacity-[.50]"
           >
