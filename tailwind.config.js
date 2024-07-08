@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       opacity: {
@@ -18,7 +19,7 @@ export default {
       "primary-text": "#212121",
       accent: "#607D8B",
       "white-10": "#f1f5f9",
-      "white-20": "#e7e5e4",
+      "white-20": "#e2e8f0",
       "gray-10": "#cbd5e1",
       "gray-20": "#BDBDBD",
       "gray-30": "#757575",

@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PoliciesTable from "../components/PoliciesTable";
 import { Toaster, toast } from "sonner";
-import { useNavigate } from "react-router-dom";
 
 const Application = () => {
   const [enableClearBtn, setEnableClearBtn] = useState(false);
@@ -134,7 +134,7 @@ const Application = () => {
           id="resno"
           name="resno"
           onChange={(e) => handleChange(e)}
-          className="border border-gray-20 rounded-xl max-w-48 p-2 text-sm dark:bg-primary-50"
+          className="bg-white-10 border border-gray-50 rounded-xl max-w-48 p-2 text-sm dark:bg-primary-50 dark:border-white-20"
         />
         <div className="flex gap-2">
           <button type="submit" className="btn">
