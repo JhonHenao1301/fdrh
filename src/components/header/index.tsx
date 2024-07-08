@@ -1,18 +1,18 @@
 import { MoonIcon } from "@heroicons/react/24/solid";
 
+// dark:bg-primary-50
 const Header = () => {
   return (
-    <div className="bg-primary-30 w-full text-white-10 dark:bg-primary-50">
-      <div className="flex justify-between items-center gap-8 max-w-3xl p-4 m-auto">
-        <img
-          src="/Alliance_logo_standard_white.png"
-          className="col-span-1 w-24 h-fit justify-self-center md:col-span-2 md:w-44"
-          alt="logo"
-        />
-        <h1 className="text-center font-bold col-span-4 text-lg max-sm:text-xs md:text-2xl">
-          Staff development and training
-        </h1>
-        <div className="flex items-center gap-3">
+    <nav className="bg-primary-30 w-full h-auto text-white-10 shadow-2xl">
+      <div className="flex items-center gap-8 max-w-4xl py-2 px-8 m-auto">
+        <picture className="flex-1 h-fit max-w-48">
+          <img
+            src="/Alliance_logo_standard_white.png"
+            className="object-cover"
+            alt="logo"
+          />
+        </picture>
+        <section className="flex items-center gap-3 justify-end flex-1">
           <button>
             <MoonIcon className="size-4 sm:size-6" />
           </button>
@@ -30,9 +30,9 @@ const Header = () => {
               alt="spanish icon"
             />
           </button>
-        </div>
+        </section>
       </div>
-    </div>
+    </nav>
   );
 };
 
