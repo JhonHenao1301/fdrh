@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+import i18n from "../../locales/i18n";
 
 const Header = () => {
   const [dark, setDark] = useState(false);
@@ -9,6 +10,15 @@ const Header = () => {
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
+  };
+
+  const changeLanguage = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    const lang: string = event.target.id;
+    console.log(lang);
+    i18n.changeLanguage(lang);
   };
 
   return (
@@ -31,17 +41,19 @@ const Header = () => {
               <MoonIcon className="size-4 sm:size-6" />
             </button>
           )}
-          <button>
+          <button onClick={(e) => changeLanguage(e)}>
             <img
               src="/spanish_icon.png"
               className="size-6 sm:size-8"
+              id="es"
               alt="spanish icon"
             />
           </button>
-          <button>
+          <button onClick={(e) => changeLanguage(e)}>
             <img
               src="/english_icon.png"
               className="size-6 sm:size-8"
+              id="en"
               alt="spanish icon"
             />
           </button>

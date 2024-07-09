@@ -6,6 +6,7 @@ import ApplicationForm from "./pages/ApplicationForm";
 import NotFoundPage from "./pages/NotFoundPage";
 import Header from "./components/Header";
 import { useRoutes } from "react-router-dom";
+import i18n from "./locales/i18n";
 
 const AppRoutes = () => {
   let routes = useRoutes([
