@@ -17,7 +17,7 @@ const Header = () => {
   ) => {
     event.preventDefault();
     const lang: string = event.target.id;
-    console.log(lang);
+    // console.log(lang);
     i18n.changeLanguage(lang);
   };
 
@@ -43,16 +43,16 @@ const Header = () => {
           )}
           <button onClick={(e) => changeLanguage(e)}>
             <img
-              src="/spanish_icon.png"
-              className="size-6 sm:size-8"
+              src="/spanish_icon2.png"
+              className="size-6 sm:size-7"
               id="es"
               alt="spanish icon"
             />
           </button>
           <button onClick={(e) => changeLanguage(e)}>
             <img
-              src="/english_icon.png"
-              className="size-6 sm:size-8"
+              src="/english_icon2.png"
+              className="size-6 sm:size-7"
               id="en"
               alt="spanish icon"
             />

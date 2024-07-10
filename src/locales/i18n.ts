@@ -7,6 +7,34 @@ const resources = {
       home_msg1: "Main page",
       home_msg2: "Admin page",
       home_msg3: "Application page",
+      application_msg1: "Staff development and training",
+      application_msg2:
+        "The Alliance of Bioversity International and CIAT, recognizes that its staff are fundamental to its success. As a research organization, it is essential that the Alliance promotes a strong learning culture in which all employees can develop and learn the competencies and skills required to perform their jobs safely at all times, reach their full potential and meet the evolving needs of the organization.",
+      application_msg3:
+        "One way to promote this culture is to support training and development processes.",
+      application_msg4:
+        "This is the call to receive requests for education support for higher education, you can find below he eligibility criteria, the steps to submit sour request and the Education Support Policy.",
+      application_msg5: "Eligibility",
+      application_msg6:
+        "At least a year's tenure within the organization by the time the academic period for which they are requesting support begins.",
+      application_msg7:
+        "'Effective' or 'highly effective' performance rating in the last year (for staff who joined the Alliance on or before June 30 of the previous year).",
+      application_msg8: "Does not have current disciplinary action.",
+      application_msg9:
+        "Qualifications related to the employee's role, career development, areas of work and objectives, or the Alliance's strategic plans.",
+      application_msg10: "To submit your request",
+      application_msg11:
+        "Have available the information related to the training such as name of the institution, costs, dates, etc. Please take into account that the call cover all year (first and second semester).",
+      application_msg12:
+        "Review the Education Support policy, where you can find eligibility criteria and the process.",
+      application_msg13:
+        "Enter your Alliance ID number on the box and click 'Enter'.",
+      application_msg14:
+        "Fill out the online Education Support form and send your request (PDF or physical format) endorsed by your supervisor to Adriana Cardona Adriana-cardona@cgiar.org.",
+      application_msg15: "Employee ID Number",
+      application_msg16: "Enter",
+      application_msg17: "Clear",
+      application_msg18: "Introduce a valid value",
     },
   },
   es: {
@@ -14,6 +42,34 @@ const resources = {
       home_msg1: "Página principal",
       home_msg2: "Página de administración",
       home_msg3: "Página de aplicación",
+      application_msg1: "Solicitud de apoyo para capacitación",
+      application_msg2:
+        "La Alianza de Bioversity Internacional y el CIAT, reconoce que su personal es fundamental para su éxito. Como organización de investigación, es fundamental que la Alianza promueva una sólida cultura de aprendizaje en la que todos los empleados puedan desarrollar y aprender las competencias y habilidades necesarias para realizar su trabajo de manera segura en todo momento, alcanzar su máximo potencial y satisfacer las necesidades cambiantes de la organización.",
+      application_msg3:
+        "Una manera de promover dicha cultura es el apoyo a los procesos de capacitación y desarrollo.",
+      application_msg4:
+        "Esta es la convocatoria para recibir solicitudes de apoyo educativo para educación superior, a continuación puede encontrar los criterios de elegibilidad, los pasos para presentar una solicitud y la Política de Apoyo Educativo.",
+      application_msg5: "Requisitos generales:",
+      application_msg6:
+        "Tener al menos un año vinculado con la Organización para el momento en que inicia el período académico para el cual pedirá el apoyo.",
+      application_msg7:
+        "Tener una calificación de 'efectivo' o 'altamente efectivo' en la gestión del desempeño del año pasado (empleados que ingresaron en o antes del 30 de junio del año anterior).",
+      application_msg8: "No tener acciones disciplinarias.",
+      application_msg9:
+        "Programas educativos relacionados con el rol, desarrollo profesional del empleado o el área de trabajo, objetivos o estrategia de la Alianza.",
+      application_msg10: "Para realizar su solicitud:",
+      application_msg11:
+        "Tener disponible la información relacionada con la capacitación como nombre de la Institución, costos, fechas, etc. Favor de tomar en cuenta que la convocatoria cubre todo el año (primer y segundo semestre).",
+      application_msg12:
+        "Lee la Política de apoyo educativo, donde podrás encontrar los criterios de eligibilidad y el proceso",
+      application_msg13:
+        "Ingrese su número de identificación de la Alianza en el cuadro y haga clic en 'Siguiente'",
+      application_msg14:
+        "Diligencia el formulario en línea de Apoyo Educativo y envía tu solicitud (PDF o formato físico) avalada por tu supervisor a Adriana Cardona Adriana-cardona@cgiar.org",
+      application_msg15: "Número de carnet del Empleado",
+      application_msg16: "Siguiente",
+      application_msg17: "Limpiar",
+      application_msg18: "Introduce un valor válido",
     },
   },
 };
