@@ -226,6 +226,243 @@ const PoliciesTable = () => {
           absence, such as vacation or unpaid leave.
         </li>
       </ul>
+      <ol start={7}>
+        <li>
+          <strong>Implementation procedures</strong>
+        </li>
+      </ol>
+      <td>
+        <strong>7.1 Request</strong>
+      </td>
+      <td>
+        Employees will submit an Education Support Request Form (Annex 1). The
+        request will be reviewed and endorsed by the employee’s manager or
+        supervisor.
+      </td>
+
+      <td>
+        <strong>7.2 Approval</strong>
+      </td>
+      <td>
+        The Global Talent team will consolidate and review the requests made.
+        The review will include an assessment of the employee based on his/her
+        eligibility and the eligible qualifications. Requests that meet both
+        requirements will be approved.
+      </td>
+      <td>
+        Once all the requests have been reviewed, the Global Talent team will
+        make a proposal of the maximum percentage and amount for reimbursement,
+        based on budget available and number of requests approved. The maximum
+        reimbursement amount will be endorsed by the Workforce Committee.
+      </td>
+      <td>
+        All approved requests will receive Education Support up to the
+        percentage and maximum reimbursement amount approved.
+      </td>
+      <td>
+        The Global Talent team will notify employees through an official email
+        of the outcome of their request. If the request is not approved,
+        employees will be informed of the reasons for the rejection.
+      </td>
+      <td>
+        <strong>7.3 Reimbursement</strong>
+      </td>
+      <td>
+        Once their request has been approved, employees will provide the Global
+        Talent team with the academic program and proof of payment. Employees
+        will also sign a promissory note committing to repayment of fees under
+        the conditions established in Section 7.4.
+      </td>
+      <td>
+        Reimbursements will be implemented with the first available payroll
+        after submission of proof of payment and qualification program.
+      </td>
+      <td>
+        At the end of each module as established in the academic program,
+        employees will send the Global Talent team their final grade. If
+        employees do not meet the minimum passing grade for the course and
+        complete each of the assignments undertaken, no further Education
+        Support will be awarded.
+      </td>
+      <td>
+        Tax treatment of this reimbursement may vary from country to country
+        depending on the applicable legislation. Any tax obligations will be
+        borne by employees.
+      </td>
+
+      <td>
+        <strong>7.4 Payment of fees</strong>
+      </td>
+      <td>Employees will be asked to repay the fees reimbursed if:</td>
+      <ul>
+        <li>
+          They leave their employment with the Alliance prior to completing the
+          qualification. In this case, employees will repay the fees in full.
+        </li>
+        <li>
+          They leave their employment within 6 months of completing the
+          qualification. In this case, employees will repay 50% of the total
+          fees received.
+        </li>
+      </ul>
+      <td>
+        Should employees be unable to complete the qualification because of
+        illness or some other proven factor beyond their control, this repayment
+        provision will not apply.
+      </td>
+      <ol start={8}>
+        <li>
+          <strong>Roles and responsibilities</strong>
+        </li>
+      </ol>
+      <td>
+        <strong>8.1 Global and Regionals Human Resources</strong>
+      </td>
+      <ul>
+        <li>
+          <strong>Global Human Resources Director:</strong> Responsible for
+          developing, reviewing, administering, and directing all matters
+          related to this Policy. Approves the maximum reimbursement amount
+          every year.
+        </li>
+        <li>
+          <strong>Global Talent team:</strong> Ensures the consistent
+          application of this Policy and provides advice and support in its
+          application. Reviews and decides on Education Support requests from
+          employees.
+        </li>
+        <li>
+          <strong>Regional Human Resources team:</strong> Ensures the regional
+          implementation of this Policy, in particular reimbursement
+          implementation.
+        </li>
+      </ul>
+
+      <td>
+        <strong>8.2 Senior Managment Team (SMT)</strong>
+      </td>
+      <ul>
+        <li>
+          Supports the Education Support Policy, adhering to principles,
+          objectives and statements, and applicable procedures.
+        </li>
+        <li>
+          Facilitates further development, compliance with, and consistency of
+          the Policy.
+        </li>
+      </ul>
+
+      <td>
+        <strong>8.3 Managers and supervisors</strong>
+      </td>
+      <td>
+        They review and endorse the Education Support requests of their
+        employees.
+      </td>
+
+      <td>
+        <strong>8.4 Employees</strong>
+      </td>
+      <td>
+        They request Education Support in accordance with this Policy. They
+        complete and obtain at least a passing grade for the qualifications they
+        receive reimbursement for.
+      </td>
+
+      <ol start={9}>
+        <li>
+          <strong>Education support procedure workflow</strong>
+        </li>
+      </ol>
+      <picture>
+        <img src="/workflow.png" className="w-full" alt="workflow" />
+      </picture>
+
+      <ol start={10}>
+        <li>
+          <strong>Related policies</strong>
+        </li>
+      </ol>
+      <ul>
+        <li>Staff Development Procedure</li>
+        <li>Performance Management Policy</li>
+        <li>Fraud Prevention Policy</li>
+        <li>Code of Ethics and Conduct</li>
+      </ul>
+
+      <ol start={11}>
+        <li>
+          <strong>Policy authority</strong>
+        </li>
+      </ol>
+      <td>
+        This Policy and its modifications require Alliance Senior Management
+        Team approval and will be managed and reviewed by Human Resources. The
+        effective date of this revised Policy is 8 November 2021. This Policy
+        supersedes previous policies regarding this subject matter and previous
+        policies are considered rescinded.
+      </td>
+
+      <ol start={12}>
+        <li>
+          <strong>Version Control</strong>
+        </li>
+      </ol>
+      <table className="table-auto border border-collapse">
+        <tbody>
+          <tr>
+            <td className="border">
+              <strong>VERSION</strong>
+            </td>
+            <td className="border">
+              <strong>DATE OF APPROVAL OF THE NEWEST VERSION</strong>
+            </td>
+            <td className="border">
+              <strong>DESCRIPTION OF CHANGE</strong>
+            </td>
+            <td className="border">
+              <strong>PREPARED BY:</strong>
+            </td>
+          </tr>
+          <tr>
+            <td className="border">00</td>
+
+            <td className="border">8 November 2021</td>
+
+            <td className="border">
+              First version of the Education Support Policy
+            </td>
+
+            <td>Ingrid Lambert Ana Carrillo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <tbody className="table-auto border border-collapse">
+          <tr>
+            <td className="border">
+              <td>Reviewed by:</td>
+            </td>
+            <td className="border">
+              Approved by: Approved virtually on 8 November 202
+            </td>
+          </tr>
+          <tr>
+            <strong>Ingrid Lambert</strong>
+            Global Human Resources Director
+            <td className="border">
+              <strong>Senior Management Team</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <picture>
+        <img alt="workflow" className="w-full" src="/workflow_2.png" />
+      </picture>
+      <picture>
+        <img alt="workflow" className="w-full" src="/workflow_3.png" />
+      </picture>
     </table>
   );
 };
