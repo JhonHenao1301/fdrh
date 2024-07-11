@@ -4,9 +4,8 @@ import Admin from "./pages/Admin";
 import Application from "./pages/Application";
 import ApplicationForm from "./pages/ApplicationForm";
 import NotFoundPage from "./pages/NotFoundPage";
-import Header from "./components/Header";
+import Header from "./components/header/index";
 import { useRoutes } from "react-router-dom";
-import i18n from "./locales/i18n";
 
 const AppRoutes = () => {
   let routes = useRoutes([

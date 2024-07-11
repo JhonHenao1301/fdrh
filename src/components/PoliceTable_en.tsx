@@ -1,4 +1,4 @@
-const PoliciesTable = () => {
+const PoliciesTableEn = () => {
   return (
     <table className="w-full border border-collapse rounded-md border-slate-400 max-h-64 flex flex-col gap-4 overflow-auto px-4 py-2 text-xs text-justify">
       <td className="text-lg">
@@ -467,4 +467,4 @@ const PoliciesTable = () => {
   );
 };
 
-export default PoliciesTable;
+export default PoliciesTableEn;

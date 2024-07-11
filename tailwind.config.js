@@ -18,7 +18,7 @@ export default {
       "primary-50": "#0f172AE6",
       "primary-text": "#212121",
       accent: "#607D8B",
-      "white-10": "#f1f5f9",
+      "white-10": "#f8fafc",
       "white-20": "#e2e8f0",
       "gray-10": "#cbd5e1",
       "gray-20": "#BDBDBD",

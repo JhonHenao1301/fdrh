@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PoliciesTable from "../components/PoliciesTable";
+import PoliciesTableEn from "../components/PoliceTable_en";
+import PoliciesTableEs from "../components/PoliceTable_es";
 import { Toaster, toast } from "sonner";
 import { useTranslation } from "react-i18next";
 
 const Application = () => {
   const [enableClearBtn, setEnableClearBtn] = useState(false);
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -84,7 +85,8 @@ const Application = () => {
           <li>{t("application_msg14")}</li>
         </ul>
       </section>
-      <PoliciesTable />
+      {i18n.language === "en" ? <PoliciesTableEn /> : <PoliciesTableEs />}
+
       <form
         id="form"
         action="submit"
