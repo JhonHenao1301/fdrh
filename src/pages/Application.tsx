@@ -57,14 +57,14 @@ const Application = () => {
 
   return (
     <div className="flex flex-col gap-4 max-w-4xl h-inherit text-justify m-auto p-8">
-      <h1 className="text-center col-span-4 text-3xl font-extrabold max-sm:text-xl">
+      <h1 className="text-center col-span-4 text-3xl font-extrabold max-sm:text-xl dark:text-white-20">
         {t("application_msg1")}
       </h1>
       <section className="flex flex-col gap-4 mt-4">
         <p>{t("application_msg2")}</p>
         <p>{t("application_msg3")}</p>
         <p>{t("application_msg4")}</p>
-        <strong className="text-sky-700 font-extrabold">
+        <strong className="text-sky-700 font-extrabold dark:text-white-20">
           {t("application_msg5")}
         </strong>
         <ul className="flex flex-col gap-4 mt-2">
@@ -74,7 +74,7 @@ const Application = () => {
           <li>{t("application_msg9")}</li>
         </ul>
         <p className="mt-1">
-          <strong className="text-sky-700 font-extrabold">
+          <strong className="text-sky-700 font-extrabold dark:text-white-20">
             {t("application_msg10")}
           </strong>
         </p>
@@ -95,7 +95,7 @@ const Application = () => {
       >
         <label
           htmlFor="resno"
-          className="text-primary-30 font-extrabold dark:text-primary-10"
+          className="text-primary-30 font-extrabold dark:text-white-20"
         >
           {t("application_msg15")}
         </label>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import i18n from "../locales/i18n";
+import i18n from "../../locales/i18n";
 
 const Header = () => {
   const [dark, setDark] = useState(false);
@@ -17,7 +17,6 @@ const Header = () => {
   ) => {
     event.preventDefault();
     const lang: string = event.target.id;
-    // console.log(lang);
     i18n.changeLanguage(lang);
   };
 

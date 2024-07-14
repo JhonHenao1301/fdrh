@@ -1,99 +1,118 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 const ApplicationSelTypeEd = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [carrerChoice, setCarrerChoice] = useState<string | null>(null);
+
+  const carrerChoiceList: { value: string; label: string }[] = [
+    { value: "undergraduate", label: t("application_2_msg12") },
+    { value: "professional", label: t("application_2_msg13") },
+    { value: "master", label: t("application_2_msg14") },
+    { value: "phd", label: t("application_2_msg15") },
+  ];
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (carrerChoice) {
+      navigate(`/application/${id}/form`);
+    }
+  };
+
   return (
-    <div className="flex flex-col gap-6 p-8 max-w-4xl h-inherit m-auto">
+    <div className="flex flex-col gap-6 p-8 max-w-4xl h-screen m-auto">
       <div className="flex flex-col gap-4 text-left">
-        <h1 className="text-lg text-center font-bold">Requester information</h1>
-        <section className="grid grid-cols-2 gap-4">
-          <article className="flex flex-col justify-between">
-            <p className="text-sm text-gray-30">Name:</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Resource ID:</p>
-            <p className="font-semibold">{id}</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Job title</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Department or unit:</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Office</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Duty post:</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Supervisor:</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">Start date:</p>
-            <p className="font-semibold">Info</p>
-          </article>
-          <article className="flex flex-col justify-between ">
-            <p className="text-sm text-gray-30">
-              Performance management rating (last year):
+        <h1 className="text-lg text-center font-bold dark:text-white-20">
+          {t("application_2_msg1")}
+        </h1>
+        <section className="flex flex-col sm:grid sm:grid-cols-2 gap-x-6 gap-y-4">
+          <article className="article-info">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg2")}
             </p>
-            <p className="font-semibold">Info</p>
+            <p className="font-semibold dark:text-white-10">Info</p>
+          </article>
+          <article className="article-info">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg3")}
+            </p>
+            <p className="font-semibold dark:text-white-10">{id}</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg4")}
+            </p>
+            <p className="font-semibold dark:text-white-10">Info</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg5")}
+            </p>
+            <p className="font-semibold dark:text-white-10">info</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg6")}
+            </p>
+            <p className="font-semibold dark:text-white-10">Info</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg7")}
+            </p>
+            <p className="font-semibold dark:text-white-10">Info</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg8")}
+            </p>
+            <p className="font-semibold dark:text-white-10">Info</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg9")}
+            </p>
+            <p className="font-semibold dark:text-white-10">Info</p>
+          </article>
+          <article className="article-info ">
+            <p className="text-sm text-gray-30 dark:text-gray-10">
+              {t("application_2_msg10")}
+            </p>
+            <p className="font-semibold dark:text-white-10">Info</p>
           </article>
         </section>
       </div>
-      <form className="flex flex-col gap-6" action="submit">
-        <h1 className="font-bold">Education level</h1>
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center">
-            <input
-              id="undergraduate"
-              type="radio"
-              name="drone"
-              value="undergraduate"
-              className="mr-4"
-            />
-            <label htmlFor="undergraduate">Undergraduate</label>
-          </div>
-          <div className="flex items-center">
-            <input
-              id="professional"
-              type="radio"
-              name="drone"
-              value="professional"
-              className="mr-4"
-            />
-            <label htmlFor="professional">
-              Professional Certificate/Specializations
-            </label>
-          </div>
-          <div className="flex items-center">
-            <input
-              id="master"
-              type="radio"
-              name="drone"
-              value="master"
-              className="mr-4"
-            />
-            <label htmlFor="master">Master</label>
-          </div>
-          <div className="flex items-center">
-            <input
-              id="phd"
-              type="radio"
-              name="drone"
-              value="phd"
-              className="mr-4"
-            />
-            <label htmlFor="phd">Phd</label>
-          </div>
+      <form
+        id="form"
+        className="flex flex-col items-center gap-6"
+        onSubmit={(e) => handleSubmit(e)}
+        action="submit"
+      >
+        <h1 className="font-bold dark:text-white-20">
+          {t("application_2_msg11")}
+        </h1>
+        <div className="flex flex-col gap-4">
+          {carrerChoiceList.map((item) => (
+            <div key={item.value} className="flex">
+              <input
+                id={item.value}
+                type="radio"
+                name={item.value}
+                value={item.value}
+                className="mr-4"
+                checked={carrerChoice === item.value}
+                onChange={(e) => setCarrerChoice(e.target.value)}
+              />
+              <label htmlFor={item.value}>{item.label}</label>
+            </div>
+          ))}
+          <button type="submit" className="btn self-center mt-4">
+            {t("application_2_msg16")}
+          </button>
         </div>
-        <button className="btn">Next</button>
       </form>
     </div>
   );

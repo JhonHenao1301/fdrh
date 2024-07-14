@@ -4,6 +4,10 @@
 
 @layer components {
   .btn {
-    @apply border border-primary-30 rounded-md text-primary-30 py-1 px-2 text-sm font-bold hover:border-primary-20 hover:text-primary-20 dark:text-primary-10 dark:hover:text-primary-20;
+    @apply border border-gray-10 rounded-md text-primary-30 py-1 px-2 text-sm font-bold max-w-24 hover:border-primary-20 hover:text-primary-20 dark:text-gray-10 dark:hover:text-white-10;
+  }
+
+  .article-info {
+    @apply flex flex-col px-2;
   }
 }

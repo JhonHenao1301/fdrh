@@ -3,9 +3,9 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Application from "./pages/Application";
 import ApplicationSelTypeEd from "./pages/ApplicationSelTypeEd";
-// import ApplicationForm from "./pages/ApplicationForm";
+import ApplicationForm from "./pages/ApplicationForm";
 import NotFoundPage from "./pages/NotFoundPage";
-import Header from "./components/Header";
+import Header from "./components/ui/Header";
 import { useRoutes } from "react-router-dom";
 
 const AppRoutes = () => {
@@ -15,6 +15,7 @@ const AppRoutes = () => {
     // Application routes
     { path: "/application", element: <Application /> },
     { path: "/application/:id", element: <ApplicationSelTypeEd /> },
+    { path: "/application/:id/form", element: <ApplicationForm /> },
     { path: "/*", element: <NotFoundPage /> },
   ]);
 
@@ -24,7 +25,7 @@ const AppRoutes = () => {
 function App() {
   //
   return (
-    <div className="bg-white-10 text-primary-text h-auto dark:bg-primary-50 dark:text-white-10">
+    <div className="bg-white-10 text-primary-text h-auto dark:bg-primary-50 dark:text-gray-10">
       <Header />
       <AppRoutes />
     </div>
