@@ -7,8 +7,8 @@ import { useTranslation } from "react-i18next";
 
 const Application = () => {
   const [enableClearBtn, setEnableClearBtn] = useState(false);
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -56,7 +56,7 @@ const Application = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-w-4xl h-inherit text-justify py-8 m-auto px-8">
+    <div className="flex flex-col gap-4 max-w-4xl h-inherit text-justify m-auto p-8">
       <h1 className="text-center col-span-4 text-3xl font-extrabold max-sm:text-xl">
         {t("application_msg1")}
       </h1>
