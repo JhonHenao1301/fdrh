@@ -24,6 +24,8 @@ export default {
       "gray-20": "#BDBDBD",
       "gray-30": "#757575",
       "gray-50": "#292929",
+      "red-10": "#ef4444",
+      "red-20": "#b91c1c",
     },
   },
   plugins: [],

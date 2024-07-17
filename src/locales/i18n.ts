@@ -63,17 +63,18 @@ const resources = {
       application_3_msg9: "University/Academic Institution name:",
       application_3_msg10: "Period for which it is required:",
       application_3_msg11:
-        "Academic Program Duration (Total Number of academic periods: semesters, modules, etc.):",
-      application_3_msg12: "Semesters",
-      application_3_msg13: "Periods",
-      application_3_msg14: "Modules",
-      application_3_msg15: "Periods",
+        "Academic Program Duration (Total Number of academic periods: semesters, modules, etc.)",
+      application_3_msg12: "Description",
+      application_3_msg13: "Semesters",
+      application_3_msg14: "Periods",
+      application_3_msg15: "Modules",
       application_3_msg16:
         "Number of academic periods to carry out during this year:",
       application_3_msg17:
         "Study leave (paid time off to complete the course):",
       application_3_msg18: "Current status:",
       application_3_msg19: "",
+      application_3_msg20: "",
     },
   },
   es: {
@@ -139,15 +140,15 @@ const resources = {
       application_3_msg10: "Periodo por el que se solicita este apoyo:",
       application_3_msg11:
         "Duración total del programa académico (Número total de períodos académicos: semestres, módulos, etc.):",
-      application_3_msg12: "Semestres",
-      application_3_msg13: "Períodos",
-      application_3_msg14: "Módulos",
-      application_3_msg15:
-        "Número de periodos académicos a realizar durante este año:",
+      application_3_msg12: "Descripción",
+      application_3_msg13: "Semestres",
+      application_3_msg14: "Períodos",
+      application_3_msg15: "Módulos",
       application_3_msg16:
+        "Número de periodos académicos a realizar durante este año:",
+      application_3_msg17:
         "Licencia de estudio (tiempo libre pagado para completar el curso):",
-      application_3_msg17: "Estado actual:",
-      application_3_msg18: "",
+      application_3_msg18: "Estado actual:",
       application_3_msg19: "",
       application_3_msg20: "",
       application_3_msg21:
