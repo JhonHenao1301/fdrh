@@ -48,7 +48,7 @@ const ApplicationForm = () => {
                   message: "This field is required",
                 },
               })}
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
             />
             {errors.program && (
@@ -79,7 +79,8 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
+              autoComplete="off"
               {...register("description", {
                 required: {
                   value: true,
@@ -107,7 +108,8 @@ const ApplicationForm = () => {
                   message: "This field is required",
                 },
               })}
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
+              autoComplete="off"
             >
               <option value="face">{t("application_3_msg6")}</option>
               <option value="mix">{t("application_3_msg7")}</option>
@@ -128,7 +130,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("institution", {
                 required: {
@@ -152,7 +154,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("period", {
                 required: {
@@ -183,7 +185,7 @@ const ApplicationForm = () => {
               </label>
               <input
                 type="number"
-                className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+                className="input-standard"
                 autoComplete="off"
                 {...register("numPeriods", {
                   required: {
@@ -203,12 +205,7 @@ const ApplicationForm = () => {
               >
                 {t("application_3_msg12")}
               </label>
-              <select
-                name="typePeriods"
-                id="typePeriods"
-                className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
-                autoComplete="off"
-              >
+              <select className="input-standard" autoComplete="off">
                 <option value="">{t("application_3_msg13")}</option>
                 <option value="">{t("application_3_msg14")}</option>
                 <option value="">{t("application_3_msg15")}</option>
@@ -224,7 +221,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("academicPeriods", {
                 required: {
@@ -248,7 +245,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("studyLeave", {
                 required: {
@@ -270,12 +267,7 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg18")}
             </label>
-            <select
-              name="typePeriods"
-              id="typePeriods"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
-              autoComplete="off"
-            >
+            <select className="input-standard" autoComplete="off">
               <option value="">{t("application_3_msg19")}</option>
               <option value="">{t("application_3_msg20")}</option>
               <option value="">{t("application_3_msg21")}</option>
@@ -290,7 +282,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("startDate", {
                 required: {
@@ -314,7 +306,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("degree", {
                 required: {
@@ -338,7 +330,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("studyLeave", {
                 required: {
@@ -362,7 +354,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="input-standard"
               autoComplete="off"
               {...register("status", {
                 required: {
@@ -385,12 +377,12 @@ const ApplicationForm = () => {
               {t("application_3_msg28")}
             </label>
             <div className="flex items-center gap-2">
-              <label htmlFor="" className="text-gray-30 text-sm text-start">
+              <label htmlFor="" className="text-gray-30 text-xs text-start">
                 %
               </label>
               <input
                 type="text"
-                className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+                className="input-standard"
                 autoComplete="off"
                 {...register("studyLeave", {
                   required: {
@@ -399,12 +391,12 @@ const ApplicationForm = () => {
                   },
                 })}
               />
-              <label htmlFor="" className="text-gray-30 text-sm text-start">
+              <label htmlFor="" className="text-gray-30 text-xs text-start">
                 US$
               </label>
               <input
                 type="text"
-                className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+                className="input-standard"
                 autoComplete="off"
                 {...register("studyLeave", {
                   required: {
