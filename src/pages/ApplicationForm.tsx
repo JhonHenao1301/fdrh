@@ -6,6 +6,20 @@ import UserInfo from "../components/ui/UserInfo";
 type Inputs = {
   program: string;
   level: string;
+  description: string;
+  modality: string;
+  institution: string;
+  period: string;
+  durationTime: number;
+  typePeriod: string;
+  academicPeriods: string;
+  studyLeave: string;
+  status: string;
+  startDate: Date;
+  degreeDate: Date;
+  totalCost: number;
+  additionalFinancial: string;
+  support: number;
 };
 
 const ApplicationForm = () => {
@@ -13,13 +27,12 @@ const ApplicationForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: { errors },
   } = useForm();
   const { t } = useTranslation();
   // const navigate = useNavigate();
 
-  // console.log(errors);
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     // navigate(`/application/${id}/form/verification`);
@@ -33,6 +46,7 @@ const ApplicationForm = () => {
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-6 my-4">
+          {/* Academic program (program) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="program"
@@ -57,6 +71,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Education level (level) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="level"
@@ -70,6 +85,7 @@ const ApplicationForm = () => {
               disabled
             />
           </div>
+          {/* Justification (description) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="description"
@@ -94,6 +110,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Modality (modality) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="modality"
@@ -121,6 +138,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* University (institution) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="institution"
@@ -145,6 +163,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Period (period) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="period"
@@ -169,16 +188,14 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Duration program (durationTime - typePeriod) */}
           <div className="flex gap-4 justify-between">
-            <label
-              className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="program"
-            >
+            <label className="text-gray-30 text-sm text-start transition-all">
               {t("application_3_msg11")}
             </label>
             <div className="flex gap-2 items-center w-1/2">
               <label
-                htmlFor="numPeriods"
+                htmlFor="durationTime"
                 className="text-gray-30 text-sm text-start transition-all"
               >
                 #
@@ -187,31 +204,36 @@ const ApplicationForm = () => {
                 type="number"
                 className="input-standard"
                 autoComplete="off"
-                {...register("numPeriods", {
+                {...register("durationTime", {
                   required: {
                     value: true,
                     message: "This field is required",
                   },
                 })}
               />
-              {errors.numPeriods && (
+              {errors.durationTime && (
                 <span className="text-sm text-red-20 text-start">
-                  {errors.numPeriods?.message}
+                  {errors.durationTime?.message}
                 </span>
               )}
               <label
-                htmlFor="typePeriods"
+                htmlFor="typePeriod"
                 className="text-gray-30 text-sm text-start transition-all"
               >
                 {t("application_3_msg12")}
               </label>
-              <select className="input-standard" autoComplete="off">
+              <select
+                className="input-standard"
+                autoComplete="off"
+                {...register("typePeriod")}
+              >
                 <option value="">{t("application_3_msg13")}</option>
                 <option value="">{t("application_3_msg14")}</option>
                 <option value="">{t("application_3_msg15")}</option>
               </select>
             </div>
           </div>
+          {/* Academic periods (academicPeriods)  */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
@@ -236,6 +258,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Study leave (studyLeave) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
@@ -260,19 +283,25 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Current status (status) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="period"
+              htmlFor="status"
             >
               {t("application_3_msg18")}
             </label>
-            <select className="input-standard" autoComplete="off">
+            <select
+              className="input-standard"
+              autoComplete="off"
+              {...register("status")}
+            >
               <option value="">{t("application_3_msg19")}</option>
               <option value="">{t("application_3_msg20")}</option>
               <option value="">{t("application_3_msg21")}</option>
             </select>
           </div>
+          {/* Start date (startDate) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
@@ -281,7 +310,7 @@ const ApplicationForm = () => {
               {t("application_3_msg22")}
             </label>
             <input
-              type="text"
+              type="date"
               className="input-standard"
               autoComplete="off"
               {...register("startDate", {
@@ -297,108 +326,115 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Degree date (degreeDate) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="degree"
+              htmlFor="degreeDate"
             >
               {t("application_3_msg23")}
             </label>
             <input
-              type="text"
+              type="date"
               className="input-standard"
               autoComplete="off"
-              {...register("degree", {
+              {...register("degreeDate", {
                 required: {
                   value: true,
                   message: "This field is required",
                 },
               })}
             />
-            {errors.degree && (
+            {errors.degreeDate && (
               <span className="text-sm text-red-20 text-start">
-                {errors.degree?.message}
+                {errors.degreeDate?.message}
               </span>
             )}
           </div>
+          {/* Total cost (totalCost) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="studyLeave"
+              htmlFor="totalCost"
             >
               {t("application_3_msg24")}
             </label>
             <input
-              type="text"
+              type="number"
               className="input-standard"
               autoComplete="off"
-              {...register("studyLeave", {
+              {...register("totalCost", {
                 required: {
                   value: true,
                   message: "This field is required",
                 },
               })}
             />
-            {errors.studyLeave && (
+            {errors.totalCost && (
               <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
+                {errors.totalCost?.message}
               </span>
             )}
           </div>
+          {/* Receive additional financial (additionalFinancial) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="status"
+              htmlFor="additionalFinancial"
             >
               {t("application_3_msg25")}
             </label>
-            <input
-              type="text"
-              className="input-standard"
-              autoComplete="off"
-              {...register("status", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
-            />
-            {errors.status && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
-              </span>
-            )}
+            <div className="flex gap-6">
+              <div className="flex gap-2">
+                <label htmlFor="additionalFinancial">
+                  {t("application_3_msg26")}
+                </label>
+                <input
+                  type="radio"
+                  className="input-standard"
+                  autoComplete="off"
+                  {...register("additionalFinancial")}
+                />
+              </div>
+              <div className="flex gap-2">
+                <label htmlFor="additionalFinancial">No</label>
+                <input
+                  type="radio"
+                  className="input-standard"
+                  autoComplete="off"
+                  {...register("additionalFinancial")}
+                />
+              </div>
+            </div>
           </div>
+
+          {/* Support amount (support) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start"
-              htmlFor="studyLeave"
+              htmlFor="support"
             >
               {t("application_3_msg28")}
             </label>
             <div className="flex items-center gap-2">
-              <label htmlFor="" className="text-gray-30 text-xs text-start">
-                %
-              </label>
+              <label className="text-gray-30 text-xs text-start">%</label>
               <input
-                type="text"
+                type="number"
                 className="input-standard"
                 autoComplete="off"
-                {...register("studyLeave", {
+                {...register("support", {
                   required: {
                     value: true,
                     message: "This field is required",
                   },
                 })}
               />
-              <label htmlFor="" className="text-gray-30 text-xs text-start">
-                US$
-              </label>
+              <label className="text-gray-30 text-xs text-start">US$</label>
               <input
-                type="text"
+                type="number"
                 className="input-standard"
                 autoComplete="off"
-                {...register("studyLeave", {
+                {...register("support", {
                   required: {
                     value: true,
                     message: "This field is required",
@@ -406,9 +442,9 @@ const ApplicationForm = () => {
                 })}
               />
             </div>
-            {errors.studyLeave && (
+            {errors.support && (
               <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
+                {errors.support?.message}
               </span>
             )}
           </div>
