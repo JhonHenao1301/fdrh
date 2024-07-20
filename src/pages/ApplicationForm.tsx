@@ -2,7 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../components/ui/UserInfo";
-
+import DatePickerComponent from "../components/ui/DatePicker";
+import SwitchComponent from "../components/ui/SwitchComponent";
 type Inputs = {
   program: string;
   level: string;
@@ -27,7 +28,8 @@ const ApplicationForm = () => {
   const {
     register,
     handleSubmit,
-    // watch,
+    control,
+    watch,
     formState: { errors },
   } = useForm();
   const { t } = useTranslation();
@@ -309,22 +311,11 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg22")}
             </label>
-            <input
-              type="date"
-              className="input-standard"
-              autoComplete="off"
-              {...register("startDate", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
+            <DatePickerComponent
+              name="startDate"
+              placeholder="Start date"
+              control={control}
             />
-            {errors.startDate && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.startDate?.message}
-              </span>
-            )}
           </div>
           {/* Degree date (degreeDate) */}
           <div className="flex flex-col gap-2">
@@ -334,22 +325,11 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg23")}
             </label>
-            <input
-              type="date"
-              className="input-standard"
-              autoComplete="off"
-              {...register("degreeDate", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
+            <DatePickerComponent
+              name="degreeDate"
+              placeholder="Degree date"
+              control={control}
             />
-            {errors.degreeDate && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.degreeDate?.message}
-              </span>
-            )}
           </div>
           {/* Total cost (totalCost) */}
           <div className="flex flex-col gap-2">
@@ -384,28 +364,7 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg25")}
             </label>
-            <div className="flex gap-6">
-              <div className="flex gap-2">
-                <label htmlFor="additionalFinancial">
-                  {t("application_3_msg26")}
-                </label>
-                <input
-                  type="radio"
-                  className="input-standard"
-                  autoComplete="off"
-                  {...register("additionalFinancial")}
-                />
-              </div>
-              <div className="flex gap-2">
-                <label htmlFor="additionalFinancial">No</label>
-                <input
-                  type="radio"
-                  className="input-standard"
-                  autoComplete="off"
-                  {...register("additionalFinancial")}
-                />
-              </div>
-            </div>
+            <SwitchComponent name="additionalFinancial" control={control} />
           </div>
 
           {/* Support amount (support) */}
@@ -452,6 +411,7 @@ const ApplicationForm = () => {
             {t("application_2_msg6")}
           </button>
         </div>
+        <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>
     </div>
   );
