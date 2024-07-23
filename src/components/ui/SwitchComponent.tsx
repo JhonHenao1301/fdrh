@@ -13,6 +13,7 @@ const SwitchComponent = (props: RHSwitchProps) => {
     <Controller
       control={props.control}
       name={props.name}
+      defaultValue={false}
       rules={{
         required: {
           value: true,

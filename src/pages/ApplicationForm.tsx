@@ -1,9 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {
+  FieldValue,
+  FieldValues,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../components/ui/UserInfo";
 import DatePickerComponent from "../components/ui/DatePicker";
 import SwitchComponent from "../components/ui/SwitchComponent";
+import SelectComponent from "../components/ui/SelectComponent";
+
 type Inputs = {
   program: string;
   level: string;
@@ -35,7 +42,25 @@ const ApplicationForm = () => {
   const { t } = useTranslation();
   // const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const modalitySelect = [
+    { value: "face", label: t("application_3_msg6") },
+    { value: "mix", label: t("application_3_msg7") },
+    { value: "virtual", label: t("application_3_msg8") },
+  ];
+
+  const typePeriodSelect = [
+    { value: "semesters", label: t("application_3_msg13") },
+    { value: "periods", label: t("application_3_msg14") },
+    { value: "modules", label: t("application_3_msg15") },
+  ];
+
+  const statusSelect = [
+    { value: "started", label: t("application_3_msg19") },
+    { value: "admitted", label: t("application_3_msg20") },
+    { value: "notApplied", label: t("application_3_msg21") },
+  ];
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
     // navigate(`/application/${id}/form/verification`);
   };
@@ -120,25 +145,11 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg5")}
             </label>
-            <select
-              {...register("modality", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
-              className="input-standard"
-              autoComplete="off"
-            >
-              <option value="face">{t("application_3_msg6")}</option>
-              <option value="mix">{t("application_3_msg7")}</option>
-              <option value="virtual">{t("application_3_msg8")}</option>
-            </select>
-            {errors.modality && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.modality?.message}
-              </span>
-            )}
+            <SelectComponent
+              name="modality"
+              control={control}
+              valueArray={modalitySelect}
+            />
           </div>
           {/* University (institution) */}
           <div className="flex flex-col gap-2">
@@ -224,15 +235,11 @@ const ApplicationForm = () => {
               >
                 {t("application_3_msg12")}
               </label>
-              <select
-                className="input-standard"
-                autoComplete="off"
-                {...register("typePeriod")}
-              >
-                <option value="">{t("application_3_msg13")}</option>
-                <option value="">{t("application_3_msg14")}</option>
-                <option value="">{t("application_3_msg15")}</option>
-              </select>
+              <SelectComponent
+                name="typePeriod"
+                control={control}
+                valueArray={typePeriodSelect}
+              />
             </div>
           </div>
           {/* Academic periods (academicPeriods)  */}
@@ -293,15 +300,11 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg18")}
             </label>
-            <select
-              className="input-standard"
-              autoComplete="off"
-              {...register("status")}
-            >
-              <option value="">{t("application_3_msg19")}</option>
-              <option value="">{t("application_3_msg20")}</option>
-              <option value="">{t("application_3_msg21")}</option>
-            </select>
+            <SelectComponent
+              name="status"
+              control={control}
+              valueArray={statusSelect}
+            />
           </div>
           {/* Start date (startDate) */}
           <div className="flex flex-col gap-2">
