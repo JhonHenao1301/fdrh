@@ -12,6 +12,6 @@
   }
 
   .input-standard {
-    @apply border p-2 border-gray-30 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors;
+    @apply border p-2 border-gray-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors text-sm;
   }
 }

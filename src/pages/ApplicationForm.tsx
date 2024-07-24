@@ -83,6 +83,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="Software engineer"
               {...register("program", {
                 required: {
                   value: true,
@@ -124,6 +125,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="This program will improve my ability to make better decisions"
               className={`input-standard ${
                 errors.description ? "border-red-10" : null
               } `}
@@ -165,6 +167,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="MIT"
               className={`input-standard ${
                 errors.institution ? "border-red-10" : null
               } `}
@@ -192,6 +195,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="Semester 1 of 2024 to Semester 2 of 2026"
               className={`input-standard ${
                 errors.period ? "border-red-10" : null
               } `}
@@ -210,13 +214,13 @@ const ApplicationForm = () => {
             )}
           </div>
           {/* Duration program (durationTime - typePeriod) */}
-          <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
+          <div className="flex flex-col gap-4 justify-between md:flex-row">
             <label className="text-gray-30 text-sm text-start transition-all">
               {t("application_3_msg11")}
             </label>
-            <div className="flex gap-2 flex-1 items-center">
-              <div className="flex flex-col gap-1 items-center">
-                <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-1">
+                <div className="flex items-center gap-2">
                   <label
                     htmlFor="durationTime"
                     className="text-gray-30 text-sm text-start transition-all"
@@ -225,6 +229,7 @@ const ApplicationForm = () => {
                   </label>
                   <input
                     type="number"
+                    placeholder="4"
                     className={`input-standard ${
                       errors.durationTime ? "border-red-10" : null
                     } `}
@@ -233,6 +238,10 @@ const ApplicationForm = () => {
                       required: {
                         value: true,
                         message: "This field is required",
+                      },
+                      min: {
+                        value: 1,
+                        message: "Fill a higher value",
                       },
                     })}
                   />
@@ -266,6 +275,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="6 periods"
               className={`input-standard ${
                 errors.academicPeriods ? "border-red-10" : null
               } `}
@@ -293,6 +303,7 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="2 years"
               className={`input-standard ${
                 errors.studyLeave ? "border-red-10" : null
               } `}
@@ -362,12 +373,18 @@ const ApplicationForm = () => {
             </label>
             <input
               type="number"
-              className="input-standard"
+              className={`input-standard ${
+                errors.totalCost ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("totalCost", {
                 required: {
                   value: true,
                   message: "This field is required",
+                },
+                min: {
+                  value: 1,
+                  message: "Fill a higher value",
                 },
               })}
             />
@@ -388,49 +405,50 @@ const ApplicationForm = () => {
             <SwitchComponent name="additionalFinancial" control={control} />
           </div>
           {/* Support amount (support) */}
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-gray-30 text-sm text-start"
-              htmlFor="support"
-            >
-              {t("application_3_msg28")}
-            </label>
-            <div className="flex items-center gap-2">
-              <label className="text-gray-30 text-xs text-start">%</label>
-              <input
-                type="number"
-                className={`input-standard ${
-                  errors.support ? "border-red-10" : null
-                } `}
-                autoComplete="off"
-                {...register("support", {
-                  required: {
-                    value: true,
-                    message: "This field is required",
-                  },
-                })}
-              />
-              <label className="text-gray-30 text-xs text-start">US$</label>
-              <input
-                type="number"
-                className={`input-standard ${
-                  errors.support ? "border-red-10" : null
-                } `}
-                autoComplete="off"
-                {...register("support", {
-                  required: {
-                    value: true,
-                    message: "This field is required",
-                  },
-                })}
-              />
+          {watch("additionalFinancial") && (
+            <div className="flex flex-col gap-2">
+              <label className="text-gray-30 text-sm text-start">
+                {t("application_3_msg28")}
+              </label>
+              <div className="flex items-center gap-2">
+                <label className="text-gray-30 text-xs text-start">%</label>
+                <input
+                  type="number"
+                  defaultValue={0}
+                  autoComplete="off"
+                  className={`input-standard ${
+                    errors.support ? "border-red-10" : null
+                  } `}
+                  {...register("support", {
+                    required: {
+                      value: true,
+                      message: "This field is required",
+                    },
+                  })}
+                />
+                <label className="text-gray-30 text-xs text-start">US$</label>
+                <input
+                  type="number"
+                  defaultValue={0}
+                  autoComplete="off"
+                  className={`input-standard ${
+                    errors.support ? "border-red-10" : null
+                  } `}
+                  {...register("support", {
+                    required: {
+                      value: true,
+                      message: "This field is required",
+                    },
+                  })}
+                />
+              </div>
+              {errors.support && (
+                <span className="text-sm text-red-20 text-start">
+                  {errors.support?.message}
+                </span>
+              )}
             </div>
-            {errors.support && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.support?.message}
-              </span>
-            )}
-          </div>
+          )}
           <button type="submit" className="btn self-center mt-4">
             {t("application_2_msg6")}
           </button>

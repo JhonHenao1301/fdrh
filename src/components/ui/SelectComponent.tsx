@@ -23,7 +23,7 @@ const SelectComponent = (props: RHSelectProps) => {
           <Space>
             <Select
               onChange={onChange}
-              style={{ width: 180, height: 45 }}
+              style={{ width: 180, height: 40 }}
               options={props.valueArray}
             />
           </Space>
