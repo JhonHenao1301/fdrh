@@ -20,24 +20,17 @@ const SwitchComponent = (props: RHSwitchProps) => {
           message: "This field is required",
         },
       }}
-      render={({ fieldState, field: { value, onChange } }) => {
+      render={({ field: { value, onChange } }) => {
         return (
-          <>
-            <Space>
-              <Switch
-                checked={value}
-                onChange={onChange}
-                checkedChildren={<CheckOutlined />}
-                unCheckedChildren={<CloseOutlined />}
-                defaultChecked
-              />
-            </Space>
-            {fieldState.error ? (
-              <span className="text-sm text-red-20 text-start">
-                {fieldState.error.message}
-              </span>
-            ) : null}
-          </>
+          <Space>
+            <Switch
+              checked={value}
+              onChange={onChange}
+              checkedChildren={<CheckOutlined />}
+              unCheckedChildren={<CloseOutlined />}
+              defaultChecked
+            />
+          </Space>
         );
       }}
     />

@@ -1,6 +1,5 @@
 import { Select, Space } from "antd";
 import { Control, Controller } from "react-hook-form";
-import { useTranslation } from "react-i18next";
 
 interface RHSelectProps {
   control: Control<any>;
@@ -9,7 +8,6 @@ interface RHSelectProps {
 }
 
 const SelectComponent = (props: RHSelectProps) => {
-  const { t } = useTranslation();
   return (
     <Controller
       control={props.control}
@@ -20,23 +18,15 @@ const SelectComponent = (props: RHSelectProps) => {
           message: "This field is required",
         },
       }}
-      render={({ field: { onChange }, fieldState }) => {
+      render={({ field: { onChange } }) => {
         return (
-          <>
-            <Space>
-              <Select
-                onChange={onChange}
-                style={{ width: 250 }}
-                options={props.valueArray}
-              />
-              {fieldState.error ? (
-                <span className="text-sm text-red-20 text-start">
-                  {fieldState.error.message}
-                </span>
-              ) : null}
-            </Space>
-            ;
-          </>
+          <Space>
+            <Select
+              onChange={onChange}
+              style={{ width: 180, height: 45 }}
+              options={props.valueArray}
+            />
+          </Space>
         );
       }}
     />

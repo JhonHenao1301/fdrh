@@ -66,7 +66,7 @@ const ApplicationForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 p-8 max-w-4xl h-screen m-auto">
+    <div className="flex flex-col gap-6 p-8 max-w-4xl h-full m-auto">
       <UserInfo id={id} />
       <h1 className="text-lg text-center font-bold dark:text-white-20">
         {t("application_3_msg1")}
@@ -89,7 +89,9 @@ const ApplicationForm = () => {
                   message: "This field is required",
                 },
               })}
-              className="input-standard"
+              className={`input-standard ${
+                errors.program ? "border-red-10" : null
+              } `}
               autoComplete="off"
             />
             {errors.program && (
@@ -122,7 +124,9 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              className={`input-standard ${
+                errors.description ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("description", {
                 required: {
@@ -161,7 +165,9 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              className={`input-standard ${
+                errors.institution ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("institution", {
                 required: {
@@ -186,7 +192,9 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              className={`input-standard ${
+                errors.period ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("period", {
                 required: {
@@ -202,33 +210,39 @@ const ApplicationForm = () => {
             )}
           </div>
           {/* Duration program (durationTime - typePeriod) */}
-          <div className="flex gap-4 justify-between">
+          <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
             <label className="text-gray-30 text-sm text-start transition-all">
               {t("application_3_msg11")}
             </label>
-            <div className="flex gap-2 items-center w-1/2">
-              <label
-                htmlFor="durationTime"
-                className="text-gray-30 text-sm text-start transition-all"
-              >
-                #
-              </label>
-              <input
-                type="number"
-                className="input-standard"
-                autoComplete="off"
-                {...register("durationTime", {
-                  required: {
-                    value: true,
-                    message: "This field is required",
-                  },
-                })}
-              />
-              {errors.durationTime && (
-                <span className="text-sm text-red-20 text-start">
-                  {errors.durationTime?.message}
-                </span>
-              )}
+            <div className="flex gap-2 flex-1 items-center">
+              <div className="flex flex-col gap-1 items-center">
+                <div className="flex gap-2 items-center">
+                  <label
+                    htmlFor="durationTime"
+                    className="text-gray-30 text-sm text-start transition-all"
+                  >
+                    #
+                  </label>
+                  <input
+                    type="number"
+                    className={`input-standard ${
+                      errors.durationTime ? "border-red-10" : null
+                    } `}
+                    autoComplete="off"
+                    {...register("durationTime", {
+                      required: {
+                        value: true,
+                        message: "This field is required",
+                      },
+                    })}
+                  />
+                </div>
+                {errors.durationTime && (
+                  <span className="text-sm text-red-20 text-start">
+                    {errors.durationTime?.message}
+                  </span>
+                )}
+              </div>
               <label
                 htmlFor="typePeriod"
                 className="text-gray-30 text-sm text-start transition-all"
@@ -252,7 +266,9 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              className={`input-standard ${
+                errors.academicPeriods ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("academicPeriods", {
                 required: {
@@ -277,7 +293,9 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              className={`input-standard ${
+                errors.studyLeave ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("studyLeave", {
                 required: {
@@ -369,7 +387,6 @@ const ApplicationForm = () => {
             </label>
             <SwitchComponent name="additionalFinancial" control={control} />
           </div>
-
           {/* Support amount (support) */}
           <div className="flex flex-col gap-2">
             <label
@@ -382,7 +399,9 @@ const ApplicationForm = () => {
               <label className="text-gray-30 text-xs text-start">%</label>
               <input
                 type="number"
-                className="input-standard"
+                className={`input-standard ${
+                  errors.support ? "border-red-10" : null
+                } `}
                 autoComplete="off"
                 {...register("support", {
                   required: {
@@ -394,7 +413,9 @@ const ApplicationForm = () => {
               <label className="text-gray-30 text-xs text-start">US$</label>
               <input
                 type="number"
-                className="input-standard"
+                className={`input-standard ${
+                  errors.support ? "border-red-10" : null
+                } `}
                 autoComplete="off"
                 {...register("support", {
                   required: {
