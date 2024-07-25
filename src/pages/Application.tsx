@@ -56,7 +56,7 @@ const Application = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 max-w-4xl h-inherit text-justify m-auto p-8">
+    <div className="flex flex-col gap-4 max-w-4xl text-justify m-auto p-8">
       <h1 className="text-center col-span-4 text-3xl font-extrabold max-sm:text-xl dark:text-white-20">
         {t("application_msg1")}
       </h1>

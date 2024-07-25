@@ -25,7 +25,7 @@ const AppRoutes = () => {
 function App() {
   //
   return (
-    <div className="bg-white-10 text-primary-text h-auto dark:bg-primary-50 dark:text-gray-10">
+    <div className="bg-white-10 text-primary-text dark:bg-primary-50 dark:text-gray-10">
       <Header />
       <AppRoutes />
     </div>
