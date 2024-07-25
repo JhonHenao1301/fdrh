@@ -1,11 +1,33 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { SubmitHandler, useForm } from "react-hook-form";
+import {
+  FieldValue,
+  FieldValues,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../components/ui/UserInfo";
+import DatePickerComponent from "../components/ui/DatePicker";
+import SwitchComponent from "../components/ui/SwitchComponent";
+import SelectComponent from "../components/ui/SelectComponent";
 
 type Inputs = {
   program: string;
   level: string;
+  description: string;
+  modality: string;
+  institution: string;
+  period: string;
+  durationTime: number;
+  typePeriod: string;
+  academicPeriods: string;
+  studyLeave: string;
+  status: string;
+  startDate: Date;
+  degreeDate: Date;
+  totalCost: number;
+  additionalFinancial: string;
+  support: number;
 };
 
 const ApplicationForm = () => {
@@ -13,25 +35,45 @@ const ApplicationForm = () => {
   const {
     register,
     handleSubmit,
+    control,
     watch,
     formState: { errors },
   } = useForm();
   const { t } = useTranslation();
   // const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const modalitySelect = [
+    { value: "face", label: t("application_3_msg6") },
+    { value: "mix", label: t("application_3_msg7") },
+    { value: "virtual", label: t("application_3_msg8") },
+  ];
+
+  const typePeriodSelect = [
+    { value: "semesters", label: t("application_3_msg13") },
+    { value: "periods", label: t("application_3_msg14") },
+    { value: "modules", label: t("application_3_msg15") },
+  ];
+
+  const statusSelect = [
+    { value: "started", label: t("application_3_msg19") },
+    { value: "admitted", label: t("application_3_msg20") },
+    { value: "notApplied", label: t("application_3_msg21") },
+  ];
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
     // navigate(`/application/${id}/form/verification`);
   };
 
   return (
-    <div className="flex flex-col gap-6 p-8 max-w-4xl h-screen m-auto">
+    <div className="flex flex-col gap-6 p-8 max-w-4xl h-full m-auto">
       <UserInfo id={id} />
       <h1 className="text-lg text-center font-bold dark:text-white-20">
         {t("application_3_msg1")}
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-6 my-4">
+          {/* Academic program (program) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="program"
@@ -41,13 +83,16 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
+              placeholder="Software engineer"
               {...register("program", {
                 required: {
                   value: true,
                   message: "This field is required",
                 },
               })}
-              className="input-standard"
+              className={`input-standard ${
+                errors.program ? "border-red-10" : null
+              } `}
               autoComplete="off"
             />
             {errors.program && (
@@ -56,6 +101,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Education level (level) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="level"
@@ -66,10 +112,10 @@ const ApplicationForm = () => {
             <input
               {...register("level")}
               className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
-              value={id}
               disabled
             />
           </div>
+          {/* Justification (description) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="description"
@@ -79,7 +125,10 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              placeholder="This program will improve my ability to make better decisions"
+              className={`input-standard ${
+                errors.description ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("description", {
                 required: {
@@ -94,6 +143,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Modality (modality) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="modality"
@@ -101,26 +151,13 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg5")}
             </label>
-            <select
-              {...register("modality", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
-              className="input-standard"
-              autoComplete="off"
-            >
-              <option value="face">{t("application_3_msg6")}</option>
-              <option value="mix">{t("application_3_msg7")}</option>
-              <option value="virtual">{t("application_3_msg8")}</option>
-            </select>
-            {errors.modality && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.modality?.message}
-              </span>
-            )}
+            <SelectComponent
+              name="modality"
+              control={control}
+              valueArray={modalitySelect}
+            />
           </div>
+          {/* University (institution) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="institution"
@@ -130,7 +167,10 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              placeholder="MIT"
+              className={`input-standard ${
+                errors.institution ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("institution", {
                 required: {
@@ -145,6 +185,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Period (period) */}
           <div className="flex flex-col gap-2">
             <label
               htmlFor="period"
@@ -154,7 +195,10 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              placeholder="Semester 1 of 2024 to Semester 2 of 2026"
+              className={`input-standard ${
+                errors.period ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("period", {
                 required: {
@@ -169,49 +213,59 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
-          <div className="flex gap-4 justify-between">
-            <label
-              className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="program"
-            >
+          {/* Duration program (durationTime - typePeriod) */}
+          <div className="flex flex-col gap-4 justify-between md:flex-row">
+            <label className="text-gray-30 text-sm text-start transition-all">
               {t("application_3_msg11")}
             </label>
-            <div className="flex gap-2 items-center w-1/2">
+            <div className="flex items-center gap-2">
+              <div className="flex flex-col items-center gap-1">
+                <div className="flex items-center gap-2">
+                  <label
+                    htmlFor="durationTime"
+                    className="text-gray-30 text-sm text-start transition-all"
+                  >
+                    #
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="4"
+                    className={`input-standard ${
+                      errors.durationTime ? "border-red-10" : null
+                    } `}
+                    autoComplete="off"
+                    {...register("durationTime", {
+                      required: {
+                        value: true,
+                        message: "This field is required",
+                      },
+                      min: {
+                        value: 1,
+                        message: "Fill a higher value",
+                      },
+                    })}
+                  />
+                </div>
+                {errors.durationTime && (
+                  <span className="text-sm text-red-20 text-start">
+                    {errors.durationTime?.message}
+                  </span>
+                )}
+              </div>
               <label
-                htmlFor="numPeriods"
-                className="text-gray-30 text-sm text-start transition-all"
-              >
-                #
-              </label>
-              <input
-                type="number"
-                className="input-standard"
-                autoComplete="off"
-                {...register("numPeriods", {
-                  required: {
-                    value: true,
-                    message: "This field is required",
-                  },
-                })}
-              />
-              {errors.numPeriods && (
-                <span className="text-sm text-red-20 text-start">
-                  {errors.numPeriods?.message}
-                </span>
-              )}
-              <label
-                htmlFor="typePeriods"
+                htmlFor="typePeriod"
                 className="text-gray-30 text-sm text-start transition-all"
               >
                 {t("application_3_msg12")}
               </label>
-              <select className="input-standard" autoComplete="off">
-                <option value="">{t("application_3_msg13")}</option>
-                <option value="">{t("application_3_msg14")}</option>
-                <option value="">{t("application_3_msg15")}</option>
-              </select>
+              <SelectComponent
+                name="typePeriod"
+                control={control}
+                valueArray={typePeriodSelect}
+              />
             </div>
           </div>
+          {/* Academic periods (academicPeriods)  */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
@@ -221,7 +275,10 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              placeholder="6 periods"
+              className={`input-standard ${
+                errors.academicPeriods ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("academicPeriods", {
                 required: {
@@ -236,6 +293,7 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Study leave (studyLeave) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
@@ -245,7 +303,10 @@ const ApplicationForm = () => {
             </label>
             <input
               type="text"
-              className="input-standard"
+              placeholder="2 years"
+              className={`input-standard ${
+                errors.studyLeave ? "border-red-10" : null
+              } `}
               autoComplete="off"
               {...register("studyLeave", {
                 required: {
@@ -260,19 +321,21 @@ const ApplicationForm = () => {
               </span>
             )}
           </div>
+          {/* Current status (status) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="period"
+              htmlFor="status"
             >
               {t("application_3_msg18")}
             </label>
-            <select className="input-standard" autoComplete="off">
-              <option value="">{t("application_3_msg19")}</option>
-              <option value="">{t("application_3_msg20")}</option>
-              <option value="">{t("application_3_msg21")}</option>
-            </select>
+            <SelectComponent
+              name="status"
+              control={control}
+              valueArray={statusSelect}
+            />
           </div>
+          {/* Start date (startDate) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
@@ -280,142 +343,117 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg22")}
             </label>
-            <input
-              type="text"
-              className="input-standard"
-              autoComplete="off"
-              {...register("startDate", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
+            <DatePickerComponent
+              name="startDate"
+              placeholder="YYYY-MM-DD"
+              control={control}
             />
-            {errors.startDate && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.startDate?.message}
-              </span>
-            )}
           </div>
+          {/* Degree date (degreeDate) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="degree"
+              htmlFor="degreeDate"
             >
               {t("application_3_msg23")}
             </label>
-            <input
-              type="text"
-              className="input-standard"
-              autoComplete="off"
-              {...register("degree", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
+            <DatePickerComponent
+              name="degreeDate"
+              placeholder="YYYY-MM-DD"
+              control={control}
             />
-            {errors.degree && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.degree?.message}
-              </span>
-            )}
           </div>
+          {/* Total cost (totalCost) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="studyLeave"
+              htmlFor="totalCost"
             >
               {t("application_3_msg24")}
             </label>
             <input
-              type="text"
-              className="input-standard"
+              type="number"
+              className={`input-standard ${
+                errors.totalCost ? "border-red-10" : null
+              } `}
               autoComplete="off"
-              {...register("studyLeave", {
+              {...register("totalCost", {
                 required: {
                   value: true,
                   message: "This field is required",
                 },
+                min: {
+                  value: 1,
+                  message: "Fill a higher value",
+                },
               })}
             />
-            {errors.studyLeave && (
+            {errors.totalCost && (
               <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
+                {errors.totalCost?.message}
               </span>
             )}
           </div>
+          {/* Receive additional financial (additionalFinancial) */}
           <div className="flex flex-col gap-2">
             <label
               className="text-gray-30 text-sm text-start transition-all"
-              htmlFor="status"
+              htmlFor="additionalFinancial"
             >
               {t("application_3_msg25")}
             </label>
-            <input
-              type="text"
-              className="input-standard"
-              autoComplete="off"
-              {...register("status", {
-                required: {
-                  value: true,
-                  message: "This field is required",
-                },
-              })}
-            />
-            {errors.status && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
-              </span>
-            )}
+            <SwitchComponent name="additionalFinancial" control={control} />
           </div>
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-gray-30 text-sm text-start"
-              htmlFor="studyLeave"
-            >
-              {t("application_3_msg28")}
-            </label>
-            <div className="flex items-center gap-2">
-              <label htmlFor="" className="text-gray-30 text-xs text-start">
-                %
+          {/* Support amount (support) */}
+          {watch("additionalFinancial") && (
+            <div className="flex flex-col gap-2">
+              <label className="text-gray-30 text-sm text-start">
+                {t("application_3_msg28")}
               </label>
-              <input
-                type="text"
-                className="input-standard"
-                autoComplete="off"
-                {...register("studyLeave", {
-                  required: {
-                    value: true,
-                    message: "This field is required",
-                  },
-                })}
-              />
-              <label htmlFor="" className="text-gray-30 text-xs text-start">
-                US$
-              </label>
-              <input
-                type="text"
-                className="input-standard"
-                autoComplete="off"
-                {...register("studyLeave", {
-                  required: {
-                    value: true,
-                    message: "This field is required",
-                  },
-                })}
-              />
+              <div className="flex items-center gap-2">
+                <label className="text-gray-30 text-xs text-start">%</label>
+                <input
+                  type="number"
+                  defaultValue={0}
+                  autoComplete="off"
+                  className={`input-standard ${
+                    errors.support ? "border-red-10" : null
+                  } `}
+                  {...register("support", {
+                    required: {
+                      value: true,
+                      message: "This field is required",
+                    },
+                  })}
+                />
+                <label className="text-gray-30 text-xs text-start">US$</label>
+                <input
+                  type="number"
+                  defaultValue={0}
+                  autoComplete="off"
+                  className={`input-standard ${
+                    errors.support ? "border-red-10" : null
+                  } `}
+                  {...register("support", {
+                    required: {
+                      value: true,
+                      message: "This field is required",
+                    },
+                  })}
+                />
+              </div>
+              {errors.support && (
+                <span className="text-sm text-red-20 text-start">
+                  {errors.support?.message}
+                </span>
+              )}
             </div>
-            {errors.studyLeave && (
-              <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
-              </span>
-            )}
-          </div>
+          )}
           <button type="submit" className="btn self-center mt-4">
             {t("application_2_msg6")}
           </button>
         </div>
+        <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>
     </div>
   );
