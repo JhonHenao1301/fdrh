@@ -1,10 +1,5 @@
-import { useNavigate, useParams } from "react-router-dom";
-import {
-  FieldValue,
-  FieldValues,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { useLocation, useParams } from "react-router-dom";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../components/ui/UserInfo";
 import DatePickerComponent from "../components/ui/DatePicker";
@@ -32,6 +27,8 @@ type Inputs = {
 
 const ApplicationForm = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const carrerChoice = location.state;
   const {
     register,
     handleSubmit,
@@ -40,7 +37,6 @@ const ApplicationForm = () => {
     formState: { errors },
   } = useForm();
   const { t } = useTranslation();
-  // const navigate = useNavigate();
 
   const modalitySelect = [
     { value: "face", label: t("application_3_msg6") },
@@ -111,6 +107,7 @@ const ApplicationForm = () => {
             </label>
             <input
               {...register("level")}
+              defaultValue={carrerChoice}
               className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
               disabled
             />

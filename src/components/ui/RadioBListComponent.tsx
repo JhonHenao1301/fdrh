@@ -15,7 +15,7 @@ const RadioBListComponent = (props: RBLProps) => {
       rules={{
         required: {
           value: true,
-          message: "This field is required",
+          message: "Choose one option",
         },
       }}
       render={({ field: { onChange, value }, fieldState }) => {

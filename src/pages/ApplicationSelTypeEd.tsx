@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import UserInfo from "../components/ui/UserInfo";
 import RadioBListComponent from "../components/ui/RadioBListComponent";
 
@@ -28,10 +28,8 @@ const ApplicationSelTypeEd = () => {
   ];
 
   const onSubmit: SubmitHandler<InputNames> = (data) => {
-    console.log(data.typePeriod);
-    if (watch("typePeriod")) {
-      console.log(watch());
-      navigate(`/application/${id}/form`);
+    if (data.typePeriod) {
+      navigate(`/application/${id}/form`, { state: data.typePeriod });
     } else {
       console.log("error");
     }
@@ -59,7 +57,7 @@ const ApplicationSelTypeEd = () => {
           </button>
         </div>
       </form>
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
     </div>
   );
 };
