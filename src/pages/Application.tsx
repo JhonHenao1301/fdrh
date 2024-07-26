@@ -44,7 +44,6 @@ const Application = () => {
         if (regexCIAT.test(resno) || regexBIO.test(resno)) {
           navigate(`/application/${resno}`);
           form.reset();
-          // Here introduce the rest of the function
         } else {
           toast.error(t("application_msg18"));
           form.reset();

@@ -21,7 +21,7 @@ type Inputs = {
   startDate: Date;
   degreeDate: Date;
   totalCost: number;
-  additionalFinancial: string;
+  additionalFinancial: boolean;
   support: number;
 };
 
@@ -35,7 +35,7 @@ const ApplicationForm = () => {
     control,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<Inputs>();
   const { t } = useTranslation();
 
   const modalitySelect = [

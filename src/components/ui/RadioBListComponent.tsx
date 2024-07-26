@@ -18,21 +18,14 @@ const RadioBListComponent = (props: RBLProps) => {
           message: "Choose one option",
         },
       }}
-      render={({ field: { onChange, value }, fieldState }) => {
+      render={({ field: { onChange, value } }) => {
         return (
-          <>
-            <Radio.Group
-              onChange={onChange}
-              value={value}
-              options={props.valueArray}
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            ></Radio.Group>
-            {fieldState.error ? (
-              <span className="text-sm text-red-20 text-start">
-                {fieldState.error?.message}
-              </span>
-            ) : null}
-          </>
+          <Radio.Group
+            onChange={onChange}
+            value={value}
+            options={props.valueArray}
+            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          ></Radio.Group>
         );
       }}
     />

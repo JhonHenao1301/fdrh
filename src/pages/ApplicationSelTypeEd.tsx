@@ -10,14 +10,8 @@ type InputNames = {
 
 const ApplicationSelTypeEd = () => {
   const { id } = useParams();
-  const {
-    // register,
-    handleSubmit,
-    control,
-    watch,
-  } = useForm();
-
   const { t } = useTranslation();
+  const { handleSubmit, control, watch } = useForm<InputNames>();
   const navigate = useNavigate();
 
   const carrerChoiceList: { value: string; label: string }[] = [
@@ -28,6 +22,7 @@ const ApplicationSelTypeEd = () => {
   ];
 
   const onSubmit: SubmitHandler<InputNames> = (data) => {
+    // console.log(data);
     if (data.typePeriod) {
       navigate(`/application/${id}/form`, { state: data.typePeriod });
     } else {
@@ -52,7 +47,11 @@ const ApplicationSelTypeEd = () => {
             control={control}
             valueArray={carrerChoiceList}
           />
-          <button type="submit" className="btn self-center mt-4">
+          <button
+            type="submit"
+            className="btn self-center mt-4"
+            disabled={!watch().typePeriod}
+          >
             {t("application_2_msg6")}
           </button>
         </div>

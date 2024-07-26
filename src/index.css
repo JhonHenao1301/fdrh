@@ -4,7 +4,7 @@
 
 @layer components {
   .btn {
-    @apply border border-gray-10 rounded-md text-primary-30 py-1 px-2 text-sm font-bold max-w-24 hover:border-primary-20 hover:text-primary-20 dark:text-gray-10 dark:hover:text-white-10;
+    @apply border border-gray-10 rounded-md text-primary-30 py-1 px-2 text-sm font-bold max-w-24 hover:border-primary-20 hover:text-primary-20 dark:text-gray-10 dark:hover:text-white-10 disabled:text-gray-30 disabled:hover:border-gray-10;
   }
 
   .article-info {
