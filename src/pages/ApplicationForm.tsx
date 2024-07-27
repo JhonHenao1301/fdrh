@@ -151,8 +151,8 @@ const ApplicationForm = () => {
             </label>
             <SelectComponent
               name="modality"
-              control={control}
               valueArray={modalitySelect}
+              control={control}
             />
           </div>
           {/* University (institution) */}

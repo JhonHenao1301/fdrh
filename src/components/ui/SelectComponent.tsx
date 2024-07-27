@@ -12,19 +12,15 @@ const SelectComponent = (props: RHSelectProps) => {
     <Controller
       control={props.control}
       name={props.name}
-      rules={{
-        required: {
-          value: true,
-          message: "This field is required",
-        },
-      }}
-      render={({ field: { onChange } }) => {
+      defaultValue={props.valueArray[0].value}
+      render={({ field: { onChange, value } }) => {
         return (
           <Space>
             <Select
               onChange={onChange}
               style={{ width: 180, height: 40 }}
               options={props.valueArray}
+              value={value}
             />
           </Space>
         );
