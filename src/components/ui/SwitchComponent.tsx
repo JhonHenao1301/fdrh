@@ -5,7 +5,6 @@ import { Space, Switch } from "antd";
 interface RHSwitchProps {
   control: Control<any>;
   name: string;
-  placeholder?: string;
 }
 
 const SwitchComponent = (props: RHSwitchProps) => {
@@ -14,12 +13,6 @@ const SwitchComponent = (props: RHSwitchProps) => {
       control={props.control}
       name={props.name}
       defaultValue={false}
-      rules={{
-        required: {
-          value: true,
-          message: "This field is required",
-        },
-      }}
       render={({ field: { value, onChange } }) => {
         return (
           <Space>
@@ -28,7 +21,6 @@ const SwitchComponent = (props: RHSwitchProps) => {
               onChange={onChange}
               checkedChildren={<CheckOutlined />}
               unCheckedChildren={<CloseOutlined />}
-              defaultChecked
             />
           </Space>
         );

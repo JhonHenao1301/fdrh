@@ -57,7 +57,7 @@ const resources = {
       application_2_msg6: "Next",
 
       // Application page 3(main)
-      application_3_msg1: "Education program inforsmation",
+      application_3_msg1: "Education program information",
       application_3_msg2: "Academic program title",
       application_3_msg3: "Education level",
       application_3_msg4:
@@ -89,9 +89,7 @@ const resources = {
         "Include the 100% of the total cost of the academic periods taken this year US$ (without decimal points or comma",
       application_3_msg25:
         "Do you / Will you receive additional financial support or allowances from the Alliance to cover this educational program?",
-      application_3_msg26: "Yes",
-      application_3_msg27: "No",
-      application_3_msg28:
+      application_3_msg26:
         "If yes, please indicate the percentage or amount of support per academic period during this year",
     },
   },
@@ -185,10 +183,9 @@ const resources = {
         "Incluir el 100% del costo total de los períodos académicos a realizarse durante este año US$ (sin puntos o comas)",
       application_3_msg24:
         "Recibe o recibirá algún otro apoyo financiero por parte de la Alianza (unidad o proyecto) para cubrir este programa educativo?",
-      application_3_msg25: "Si",
-      application_3_msg26: "No",
-      application_3_msg27: "Si",
-      application_3_msg28:
+      application_3_msg25:
+        "Recibe o recibirá algún otro apoyo financiero por parte de la Alianza (unidad o proyecto) para cubrir este programa educativo?",
+      application_3_msg26:
         "En caso afirmativo, indique el porcentaje o la cantidad de apoyo por período académico durante este año:",
     },
   },

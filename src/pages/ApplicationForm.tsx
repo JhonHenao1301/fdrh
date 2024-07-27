@@ -22,7 +22,8 @@ type Inputs = {
   degreeDate: Date;
   totalCost: number;
   additionalFinancial: boolean;
-  support: number;
+  percentageSupport: number;
+  cashSupport: number;
 };
 
 const ApplicationForm = () => {
@@ -405,45 +406,36 @@ const ApplicationForm = () => {
           {watch("additionalFinancial") && (
             <div className="flex flex-col gap-2">
               <label className="text-gray-30 text-sm text-start">
-                {t("application_3_msg28")}
+                {t("application_3_msg26")}
               </label>
               <div className="flex items-center gap-2">
-                <label className="text-gray-30 text-xs text-start">%</label>
+                <label
+                  className="text-gray-30 text-xs text-start"
+                  htmlFor="percentageSupport"
+                >
+                  %
+                </label>
                 <input
                   type="number"
                   defaultValue={0}
                   autoComplete="off"
-                  className={`input-standard ${
-                    errors.support ? "border-red-10" : null
-                  } `}
-                  {...register("support", {
-                    required: {
-                      value: true,
-                      message: "This field is required",
-                    },
-                  })}
+                  className="input-standard"
+                  {...register("percentageSupport")}
                 />
-                <label className="text-gray-30 text-xs text-start">US$</label>
+                <label
+                  className="text-gray-30 text-xs text-start"
+                  htmlFor="cashSupport"
+                >
+                  US$
+                </label>
                 <input
                   type="number"
                   defaultValue={0}
                   autoComplete="off"
-                  className={`input-standard ${
-                    errors.support ? "border-red-10" : null
-                  } `}
-                  {...register("support", {
-                    required: {
-                      value: true,
-                      message: "This field is required",
-                    },
-                  })}
+                  className="input-standard"
+                  {...register("cashSupport")}
                 />
               </div>
-              {errors.support && (
-                <span className="text-sm text-red-20 text-start">
-                  {errors.support?.message}
-                </span>
-              )}
             </div>
           )}
           <button type="submit" className="btn self-center mt-4">
