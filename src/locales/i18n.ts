@@ -91,6 +91,8 @@ const resources = {
         "Do you / Will you receive additional financial support or allowances from the Alliance to cover this educational program?",
       application_3_msg26:
         "If yes, please indicate the percentage or amount of support per academic period during this year",
+      application_3_msg27:
+        "The time limit to fill out the application is 30 minutes, after this time the session expires and you will have to start again",
     },
   },
   es: {
@@ -187,6 +189,8 @@ const resources = {
         "Recibe o recibirá algún otro apoyo financiero por parte de la Alianza (unidad o proyecto) para cubrir este programa educativo?",
       application_3_msg26:
         "En caso afirmativo, indique el porcentaje o la cantidad de apoyo por período académico durante este año:",
+      application_3_msg27:
+        "Usted tiene 30 minutos para completar la solicitud, después de este período de tiempo la sesión expira y usted tendrá que iniciar de nuevo.",
     },
   },
 };
