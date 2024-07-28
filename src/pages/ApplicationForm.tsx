@@ -33,8 +33,8 @@ const ApplicationForm = () => {
   const {
     register,
     handleSubmit,
-    control,
     watch,
+    control,
     formState: { errors },
   } = useForm<Inputs>();
   const { t } = useTranslation();
@@ -86,6 +86,10 @@ const ApplicationForm = () => {
                   value: true,
                   message: "This field is required",
                 },
+                maxLength: {
+                  value: 30,
+                  message: "This field cannot exceed a limit of 30 characters.",
+                },
               })}
               className={`input-standard ${
                 errors.program ? "border-red-10" : null
@@ -94,7 +98,7 @@ const ApplicationForm = () => {
             />
             {errors.program && (
               <span className="text-start text-xs text-red-20">
-                {errors.program?.message}
+                {errors.program.message}
               </span>
             )}
           </div>
@@ -133,11 +137,16 @@ const ApplicationForm = () => {
                   value: true,
                   message: "This field is required",
                 },
+                maxLength: {
+                  value: 100,
+                  message:
+                    "This field cannot exceed a limit of 100 characters.",
+                },
               })}
             />
             {errors.description && (
               <span className="text-xs text-red-20 text-start">
-                {errors.description?.message}
+                {errors.description.message}
               </span>
             )}
           </div>
@@ -175,11 +184,15 @@ const ApplicationForm = () => {
                   value: true,
                   message: "This field is required",
                 },
+                maxLength: {
+                  value: 30,
+                  message: "This field cannot exceed a limit of 30 characters.",
+                },
               })}
             />
             {errors.institution && (
               <span className="text-sm text-red-20 text-start">
-                {errors.institution?.message}
+                {errors.institution.message}
               </span>
             )}
           </div>
@@ -203,11 +216,15 @@ const ApplicationForm = () => {
                   value: true,
                   message: "This field is required",
                 },
+                maxLength: {
+                  value: 30,
+                  message: "This field cannot exceed a limit of 30 characters.",
+                },
               })}
             />
             {errors.period && (
               <span className="text-sm text-red-20 text-start">
-                {errors.period?.message}
+                {errors.period.message}
               </span>
             )}
           </div>
@@ -240,6 +257,10 @@ const ApplicationForm = () => {
                       min: {
                         value: 1,
                         message: "Fill a higher value",
+                      },
+                      maxLength: {
+                        value: 2,
+                        message: "Maximum 2 characters",
                       },
                     })}
                   />
@@ -283,11 +304,15 @@ const ApplicationForm = () => {
                   value: true,
                   message: "This field is required",
                 },
+                maxLength: {
+                  value: 30,
+                  message: "This field cannot exceed a limit of 30 characters.",
+                },
               })}
             />
             {errors.academicPeriods && (
               <span className="text-sm text-red-20 text-start">
-                {errors.academicPeriods?.message}
+                {errors.academicPeriods.message}
               </span>
             )}
           </div>
@@ -311,11 +336,15 @@ const ApplicationForm = () => {
                   value: true,
                   message: "This field is required",
                 },
+                maxLength: {
+                  value: 30,
+                  message: "This field cannot exceed a limit of 30 characters.",
+                },
               })}
             />
             {errors.studyLeave && (
               <span className="text-sm text-red-20 text-start">
-                {errors.studyLeave?.message}
+                {errors.studyLeave.message}
               </span>
             )}
           </div>
@@ -373,7 +402,7 @@ const ApplicationForm = () => {
               type="number"
               className={`input-standard ${
                 errors.totalCost ? "border-red-10" : null
-              } `}
+              }`}
               autoComplete="off"
               {...register("totalCost", {
                 required: {
@@ -384,11 +413,15 @@ const ApplicationForm = () => {
                   value: 1,
                   message: "Fill a higher value",
                 },
+                maxLength: {
+                  value: 12,
+                  message: "Maximum 12 characters in this field",
+                },
               })}
             />
             {errors.totalCost && (
               <span className="text-sm text-red-20 text-start">
-                {errors.totalCost?.message}
+                {errors.totalCost.message}
               </span>
             )}
           </div>
@@ -403,41 +436,49 @@ const ApplicationForm = () => {
             <SwitchComponent name="additionalFinancial" control={control} />
           </div>
           {/* Support amount (support) */}
-          {watch("additionalFinancial") && (
-            <div className="flex flex-col gap-2">
-              <label className="text-gray-30 text-sm text-start">
-                {t("application_3_msg26")}
+
+          <div
+            className={`flex flex-col gap-2 ${
+              !watch("additionalFinancial") ? "hidden" : null
+            }`}
+          >
+            <label className="text-gray-30 text-sm text-start">
+              {t("application_3_msg26")}
+            </label>
+            <div className="flex items-center gap-2">
+              <label
+                className="text-gray-30 text-xs text-start"
+                htmlFor="percentageSupport"
+              >
+                %
               </label>
-              <div className="flex items-center gap-2">
-                <label
-                  className="text-gray-30 text-xs text-start"
-                  htmlFor="percentageSupport"
-                >
-                  %
-                </label>
-                <input
-                  type="number"
-                  defaultValue={0}
-                  autoComplete="off"
-                  className="input-standard"
-                  {...register("percentageSupport")}
-                />
-                <label
-                  className="text-gray-30 text-xs text-start"
-                  htmlFor="cashSupport"
-                >
-                  US$
-                </label>
-                <input
-                  type="number"
-                  defaultValue={0}
-                  autoComplete="off"
-                  className="input-standard"
-                  {...register("cashSupport")}
-                />
-              </div>
+              <input
+                type="number"
+                defaultValue={0}
+                autoComplete="off"
+                className="input-standard"
+                {...register("percentageSupport")}
+              />
+              {errors.totalCost && (
+                <span className="text-sm text-red-20 text-start">
+                  {errors.totalCost.message}
+                </span>
+              )}
+              <label
+                className="text-gray-30 text-xs text-start"
+                htmlFor="cashSupport"
+              >
+                US$
+              </label>
+              <input
+                type="number"
+                defaultValue={0}
+                autoComplete="off"
+                className="input-standard"
+                {...register("cashSupport")}
+              />
             </div>
-          )}
+          </div>
           <button type="submit" className="btn self-center mt-4">
             {t("application_2_msg6")}
           </button>

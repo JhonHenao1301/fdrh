@@ -1,6 +1,7 @@
 import { DatePicker } from "antd";
 import { Controller, Control } from "react-hook-form";
 import dayjs from "dayjs";
+import { useTranslation } from "react-i18next";
 
 interface RHFDatePickerFieldProps {
   control: Control<any>;
@@ -9,6 +10,7 @@ interface RHFDatePickerFieldProps {
 }
 
 const DatePickerComponent = (props: RHFDatePickerFieldProps) => {
+  const { t } = useTranslation();
   return (
     <Controller
       control={props.control}
