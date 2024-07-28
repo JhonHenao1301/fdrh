@@ -436,7 +436,6 @@ const ApplicationForm = () => {
             <SwitchComponent name="additionalFinancial" control={control} />
           </div>
           {/* Support amount (support) */}
-
           <div
             className={`flex flex-col gap-2 ${
               !watch("additionalFinancial") ? "hidden" : null
@@ -445,38 +444,77 @@ const ApplicationForm = () => {
             <label className="text-gray-30 text-sm text-start">
               {t("application_3_msg26")}
             </label>
-            <div className="flex items-center gap-2">
-              <label
-                className="text-gray-30 text-xs text-start"
-                htmlFor="percentageSupport"
-              >
-                %
-              </label>
-              <input
-                type="number"
-                defaultValue={0}
-                autoComplete="off"
-                className="input-standard"
-                {...register("percentageSupport")}
-              />
-              {errors.totalCost && (
-                <span className="text-sm text-red-20 text-start">
-                  {errors.totalCost.message}
-                </span>
-              )}
-              <label
-                className="text-gray-30 text-xs text-start"
-                htmlFor="cashSupport"
-              >
-                US$
-              </label>
-              <input
-                type="number"
-                defaultValue={0}
-                autoComplete="off"
-                className="input-standard"
-                {...register("cashSupport")}
-              />
+            <div className="flex items-center gap-6">
+              <div className="flex flex-col gap-2">
+                <section className="flex items-center gap-2">
+                  <label
+                    className="text-gray-30 text-xs text-start"
+                    htmlFor="percentageSupport"
+                  >
+                    %
+                  </label>
+                  <input
+                    type="number"
+                    defaultValue={0}
+                    autoComplete="off"
+                    className="input-standard"
+                    {...register("percentageSupport", {
+                      required: {
+                        value: true,
+                        message: "This field is required",
+                      },
+                      min: {
+                        value: 0,
+                        message: "Fill a higher value",
+                      },
+                      maxLength: {
+                        value: 3,
+                        message: "Maximum 3 characters in this field",
+                      },
+                    })}
+                  />
+                </section>
+                {errors.percentageSupport && (
+                  <span className="text-sm text-red-20 text-start">
+                    {errors.percentageSupport.message}
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-col gap-2">
+                <section className="flex items-center gap-2">
+                  <label
+                    className="text-gray-30 text-xs text-start"
+                    htmlFor="cashSupport"
+                  >
+                    US$
+                  </label>
+                  <input
+                    type="number"
+                    defaultValue={0}
+                    autoComplete="off"
+                    className="input-standard"
+                    {...register("cashSupport", {
+                      required: {
+                        value: true,
+                        message: "This field is required",
+                      },
+                      min: {
+                        value: 0,
+                        message: "Fill a higher value",
+                      },
+                      maxLength: {
+                        value: 3,
+                        message: "Maximum 3 characters in this field",
+                      },
+                    })}
+                  />
+                </section>
+                {errors.cashSupport && (
+                  <span className="text-sm text-red-20 text-start">
+                    {errors.cashSupport.message}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
           <button type="submit" className="btn self-center mt-4">
