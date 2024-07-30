@@ -28,6 +28,7 @@ type Inputs = {
 
 const ApplicationForm = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
   const location = useLocation();
   const carrerChoice = location.state;
   const {
@@ -35,9 +36,8 @@ const ApplicationForm = () => {
     handleSubmit,
     watch,
     control,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const { t } = useTranslation();
+    formState: { errors, isValid },
+  } = useForm<Inputs>({ mode: "onBlur" });
 
   const modalitySelect = [
     { value: "face", label: t("application_3_msg6") },
@@ -59,7 +59,6 @@ const ApplicationForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
-    // navigate(`/application/${id}/form/verification`);
   };
 
   return (
@@ -517,7 +516,11 @@ const ApplicationForm = () => {
               </div>
             </div>
           </div>
-          <button type="submit" className="btn self-center mt-4">
+          <button
+            type="submit"
+            className="btn self-center mt-4"
+            disabled={!isValid}
+          >
             {t("application_2_msg6")}
           </button>
         </div>
