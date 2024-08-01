@@ -24,7 +24,7 @@ const RadioBListComponent = (props: RBLProps) => {
             onChange={onChange}
             value={value}
             options={props.valueArray}
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            className="radio-button-group"
           ></Radio.Group>
         );
       }}

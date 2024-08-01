@@ -387,6 +387,7 @@ const ApplicationForm = () => {
               name="degreeDate"
               placeholder="YYYY-MM-DD"
               control={control}
+              compareDate={watch("startDate")}
             />
           </div>
           {/* Total cost (totalCost) */}

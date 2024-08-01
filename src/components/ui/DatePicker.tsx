@@ -19,6 +19,18 @@ const DatePickerComponent = (props: RHFDatePickerFieldProps) => {
           value: true,
           message: "This field is required",
         },
+        validate: {
+          afterStartValidate: (value) => {
+            if (props.compareDate) {
+              const compareDateValue = dayjs(props.compareDate);
+              const currentValue = dayjs(value);
+              return (
+                currentValue.isAfter(compareDateValue) ||
+                "Degree date must be higher than start date"
+              );
+            }
+          },
+        },
       }}
       render={({ field, fieldState }) => {
         return (

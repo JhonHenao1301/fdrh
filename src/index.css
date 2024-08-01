@@ -12,6 +12,10 @@
   }
 
   .input-standard {
-    @apply border p-2 border-gray-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors text-sm;
+    @apply border p-2 border-gray-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors text-sm dark:text-primary-text;
+  }
+
+  .radio-button-group {
+    @apply flex flex-col gap-4 dark:text-white-20;
   }
 }
