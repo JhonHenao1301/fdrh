@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-primary-30 w-full h-auto text-white-10 shadow-2xl  dark:bg-primary-50 dark:shadow-primary-20 dark:shadow-lg">
+    <nav className="bg-primary-30 w-full h-auto text-white-10 shadow-2xl dark:bg-primary-40 dark:shadow-primary-20 dark:shadow-lg">
       <div className="flex items-center gap-8 max-w-4xl py-2 px-8 m-auto">
         <picture className="flex-1 h-fit max-w-48">
           <img

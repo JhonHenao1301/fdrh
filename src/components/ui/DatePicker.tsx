@@ -47,7 +47,7 @@ const DatePickerComponent = (props: RHFDatePickerFieldProps) => {
               }}
             />
             {fieldState.error ? (
-              <span className="text-sm text-red-20 text-start">
+              <span className="text-sm text-red-20 text-start dark:text-red-5">
                 {fieldState.error.message}
               </span>
             ) : null}

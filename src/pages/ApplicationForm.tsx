@@ -73,7 +73,7 @@ const ApplicationForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="program"
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
             >
               {t("application_3_msg2")}
             </label>
@@ -96,7 +96,7 @@ const ApplicationForm = () => {
               autoComplete="off"
             />
             {errors.program && (
-              <span className="text-start text-xs text-red-20">
+              <span className="text-start text-xs text-red-20 dark:text-red-5">
                 {errors.program.message}
               </span>
             )}
@@ -105,14 +105,14 @@ const ApplicationForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="level"
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
             >
               {t("application_3_msg3")}
             </label>
             <input
               {...register("level")}
               defaultValue={carrerChoice}
-              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors"
+              className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors dark:disabled:bg-gray-20 dark:disabled:text-primary-50"
               disabled
             />
           </div>
@@ -120,7 +120,7 @@ const ApplicationForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="description"
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
             >
               {t("application_3_msg4")}
             </label>
@@ -144,7 +144,7 @@ const ApplicationForm = () => {
               })}
             />
             {errors.description && (
-              <span className="text-xs text-red-20 text-start">
+              <span className="text-xs text-red-20 text-start dark:text-red-5">
                 {errors.description.message}
               </span>
             )}
@@ -153,7 +153,7 @@ const ApplicationForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="modality"
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
             >
               {t("application_3_msg5")}
             </label>
@@ -167,7 +167,7 @@ const ApplicationForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="institution"
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
             >
               {t("application_3_msg9")}
             </label>
@@ -190,7 +190,7 @@ const ApplicationForm = () => {
               })}
             />
             {errors.institution && (
-              <span className="text-sm text-red-20 text-start">
+              <span className="text-sm text-red-20 text-start dark:text-red-5">
                 {errors.institution.message}
               </span>
             )}
@@ -199,7 +199,7 @@ const ApplicationForm = () => {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="period"
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
             >
               {t("application_3_msg10")}
             </label>
@@ -222,14 +222,14 @@ const ApplicationForm = () => {
               })}
             />
             {errors.period && (
-              <span className="text-sm text-red-20 text-start">
+              <span className="text-sm text-red-20 text-start dark:text-red-5">
                 {errors.period.message}
               </span>
             )}
           </div>
           {/* Duration program (durationTime - typePeriod) */}
           <div className="flex flex-col gap-4 justify-between md:flex-row">
-            <label className="text-gray-30 text-sm text-start transition-all">
+            <label className="text-gray-30 text-sm text-start transition-all dark:text-gray-20">
               {t("application_3_msg11")}
             </label>
             <div className="flex items-center gap-2">
@@ -237,7 +237,7 @@ const ApplicationForm = () => {
                 <div className="flex items-center gap-2">
                   <label
                     htmlFor="durationTime"
-                    className="text-gray-30 text-sm text-start transition-all"
+                    className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
                   >
                     #
                   </label>
@@ -265,14 +265,14 @@ const ApplicationForm = () => {
                   />
                 </div>
                 {errors.durationTime && (
-                  <span className="text-sm text-red-20 text-start">
+                  <span className="text-sm text-red-20 text-start dark:text-red-5">
                     {errors.durationTime?.message}
                   </span>
                 )}
               </div>
               <label
                 htmlFor="typePeriod"
-                className="text-gray-30 text-sm text-start transition-all"
+                className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               >
                 {t("application_3_msg12")}
               </label>
@@ -286,7 +286,7 @@ const ApplicationForm = () => {
           {/* Academic periods (academicPeriods)  */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="academicPeriods"
             >
               {t("application_3_msg16")}
@@ -310,7 +310,7 @@ const ApplicationForm = () => {
               })}
             />
             {errors.academicPeriods && (
-              <span className="text-sm text-red-20 text-start">
+              <span className="text-sm text-red-20 text-start dark:text-red-5">
                 {errors.academicPeriods.message}
               </span>
             )}
@@ -318,7 +318,7 @@ const ApplicationForm = () => {
           {/* Study leave (studyLeave) */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="studyLeave"
             >
               {t("application_3_msg17")}
@@ -342,7 +342,7 @@ const ApplicationForm = () => {
               })}
             />
             {errors.studyLeave && (
-              <span className="text-sm text-red-20 text-start">
+              <span className="text-sm text-red-20 text-start dark:text-red-5">
                 {errors.studyLeave.message}
               </span>
             )}
@@ -350,7 +350,7 @@ const ApplicationForm = () => {
           {/* Current status (status) */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="status"
             >
               {t("application_3_msg18")}
@@ -364,7 +364,7 @@ const ApplicationForm = () => {
           {/* Start date (startDate) */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="startDate"
             >
               {t("application_3_msg22")}
@@ -378,7 +378,7 @@ const ApplicationForm = () => {
           {/* Degree date (degreeDate) */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="degreeDate"
             >
               {t("application_3_msg23")}
@@ -393,7 +393,7 @@ const ApplicationForm = () => {
           {/* Total cost (totalCost) */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="totalCost"
             >
               {t("application_3_msg24")}
@@ -420,7 +420,7 @@ const ApplicationForm = () => {
               })}
             />
             {errors.totalCost && (
-              <span className="text-sm text-red-20 text-start">
+              <span className="text-sm text-red-20 text-start dark:text-red-5">
                 {errors.totalCost.message}
               </span>
             )}
@@ -428,7 +428,7 @@ const ApplicationForm = () => {
           {/* Receive additional financial (additionalFinancial) */}
           <div className="flex flex-col gap-2">
             <label
-              className="text-gray-30 text-sm text-start transition-all"
+              className="text-gray-30 text-sm text-start transition-all dark:text-gray-20"
               htmlFor="additionalFinancial"
             >
               {t("application_3_msg25")}
@@ -441,14 +441,14 @@ const ApplicationForm = () => {
               !watch("additionalFinancial") ? "hidden" : null
             }`}
           >
-            <label className="text-gray-30 text-sm text-start">
+            <label className="text-gray-30 text-sm text-start dark:text-gray-20">
               {t("application_3_msg26")}
             </label>
             <div className="flex items-center gap-6">
               <div className="flex flex-col gap-2">
                 <section className="flex items-center gap-2">
                   <label
-                    className="text-gray-30 text-xs text-start"
+                    className="text-gray-30 text-xs text-start dark:text-gray-20"
                     htmlFor="percentageSupport"
                   >
                     %
@@ -475,7 +475,7 @@ const ApplicationForm = () => {
                   />
                 </section>
                 {errors.percentageSupport && (
-                  <span className="text-sm text-red-20 text-start">
+                  <span className="text-sm text-red-20 text-start dark:text-red-5">
                     {errors.percentageSupport.message}
                   </span>
                 )}
@@ -483,7 +483,7 @@ const ApplicationForm = () => {
               <div className="flex flex-col gap-2">
                 <section className="flex items-center gap-2">
                   <label
-                    className="text-gray-30 text-xs text-start"
+                    className="text-gray-30 text-xs text-start dark:text-gray-20"
                     htmlFor="cashSupport"
                   >
                     US$
@@ -510,7 +510,7 @@ const ApplicationForm = () => {
                   />
                 </section>
                 {errors.cashSupport && (
-                  <span className="text-sm text-red-20 text-start">
+                  <span className="text-sm text-red-20 text-start dark:text-red-5">
                     {errors.cashSupport.message}
                   </span>
                 )}
