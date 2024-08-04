@@ -1,6 +1,7 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { Inputs } from "../types/Inputs";
 import UserInfo from "../components/ui/UserInfo";
 import DatePickerComponent from "../components/ui/DatePicker";
 import SwitchComponent from "../components/ui/SwitchComponent";
@@ -9,26 +10,7 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { Modal } from "antd";
 import { toast, Toaster } from "sonner";
-
-type Inputs = {
-  program: string;
-  level: string;
-  description: string;
-  modality: string;
-  institution: string;
-  period: string;
-  durationTime: number;
-  typePeriod: string;
-  academicPeriods: string;
-  studyLeave: string;
-  status: string;
-  startDate: string;
-  degreeDate: string;
-  totalCost: number;
-  additionalFinancial: boolean;
-  percentageSupport: number;
-  cashSupport: number;
-};
+import TextArea from "antd/es/input/TextArea";
 
 const ApplicationForm = () => {
   const { id } = useParams();
@@ -91,7 +73,6 @@ const ApplicationForm = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    // console.log(data);
     toast.success(t("application_3_msg29"));
     setTimeout(() => {
       navigate(`/application/${id}/form/sent`, { state: data });
@@ -163,13 +144,12 @@ const ApplicationForm = () => {
             >
               {t("application_3_msg4")}
             </label>
-            <input
-              type="text"
-              placeholder="This program will improve my ability to make better decisions"
+            <textarea
               className={`input-standard ${
                 errors.description ? "border-red-10" : null
               } `}
               autoComplete="off"
+              placeholder="This program will improve my ability to make better decisions"
               {...register("description", {
                 required: {
                   value: true,
@@ -255,7 +235,7 @@ const ApplicationForm = () => {
                   message: "This field is required",
                 },
                 maxLength: {
-                  value: 30,
+                  value: 100,
                   message: "This field cannot exceed a limit of 30 characters.",
                 },
               })}
@@ -296,9 +276,9 @@ const ApplicationForm = () => {
                         value: 1,
                         message: "Fill a higher value",
                       },
-                      maxLength: {
-                        value: 2,
-                        message: "Maximum 2 characters",
+                      max: {
+                        value: 12,
+                        message: "Fill a lower value",
                       },
                     })}
                   />
@@ -585,7 +565,7 @@ const ApplicationForm = () => {
             {t("application_2_msg6")}
           </button>
         </div>
-        <pre>{JSON.stringify(watch(), null, 2)}</pre>
+        {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
       </form>
       <Modal
         title={t("application_3_msg30")}

@@ -97,6 +97,12 @@ const resources = {
       application_3_msg29: "Form submitted!",
       application_3_msg30: "Info confirmation",
       application_3_msg31: "Are you sure you want to continue?",
+      application_4_msg1: "Submission date (YYYY-MM-DD)",
+      application_4_msg2: "Supervisor's comments",
+      application_4_msg3:
+        "Save/print this request as a PDF and send it to your supervisor for comments and signature. The request can be submitted in digital or physical version",
+      application_4_msg4: "Supervisor's approval (Name and signature)",
+      application_4_msg5: "Print/Save as PDF",
     },
   },
   es: {
@@ -199,6 +205,12 @@ const resources = {
       application_3_msg29: "El formulario ha sido enviado",
       application_3_msg30: "Confirmación de información",
       application_3_msg31: "Estás seguro/a de continuar?",
+      application_4_msg1: "Fecha de aplicación (YYYY-MM-DD)",
+      application_4_msg2: "Comentarios del supervisor",
+      application_4_msg3:
+        "Guarde/imprima esta solicitud en formato PDF y envíela a su supervisor para comentarios y su respectiva firma. La solicitud puede ser presentada en versión digital o física",
+      application_4_msg4: "Aprobación del supervisor (Nombre y firma)",
+      application_4_msg5: "Imprimir/Guardar como PDF",
     },
   },
 };

@@ -4,7 +4,7 @@
 
 @layer components {
   .btn {
-    @apply border border-gray-10 rounded-md text-primary-30 py-1 px-2 text-sm font-bold max-w-24 hover:border-primary-20 hover:text-primary-20 dark:text-gray-10 dark:hover:text-white-10 disabled:text-gray-30 disabled:hover:border-gray-10;
+    @apply border border-gray-10 rounded-md text-primary-30 py-2 px-4 text-sm font-bold max-w-48 hover:border-primary-20 hover:text-primary-20 dark:text-gray-10 dark:hover:text-white-10 disabled:text-gray-30 disabled:hover:border-gray-10;
   }
 
   .article-info {
@@ -12,7 +12,7 @@
   }
 
   .input-standard {
-    @apply border p-2 border-gray-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors text-sm dark:text-primary-text;
+    @apply border p-2 border-gray-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors text-sm dark:text-primary-text disabled:border-gray-30 disabled:bg-gray-10 disabled:font-medium;
   }
 
   .radio-button-group {
