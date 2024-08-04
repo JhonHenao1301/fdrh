@@ -7,6 +7,7 @@ import ApplicationForm from "./pages/ApplicationForm";
 import NotFoundPage from "./pages/NotFoundPage";
 import Header from "./components/ui/Header";
 import { useRoutes } from "react-router-dom";
+import ApplicationSent from "./pages/ApplicationSent";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -16,6 +17,7 @@ const AppRoutes = () => {
     { path: "/application", element: <Application /> },
     { path: "/application/:id", element: <ApplicationSelTypeEd /> },
     { path: "/application/:id/form", element: <ApplicationForm /> },
+    { path: "/application/:id/form/sent", element: <ApplicationSent /> },
     { path: "/*", element: <NotFoundPage /> },
   ]);
 

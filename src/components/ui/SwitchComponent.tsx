@@ -21,6 +21,7 @@ const SwitchComponent = (props: RHSwitchProps) => {
               onChange={onChange}
               checkedChildren={<CheckOutlined />}
               unCheckedChildren={<CloseOutlined />}
+              className="dark:bg-gray-30"
             />
           </Space>
         );

@@ -1,10 +1,14 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import UserInfo from "../components/ui/UserInfo";
 import DatePickerComponent from "../components/ui/DatePicker";
 import SwitchComponent from "../components/ui/SwitchComponent";
 import SelectComponent from "../components/ui/SelectComponent";
+import dayjs from "dayjs";
+import { useState } from "react";
+import { Modal } from "antd";
+import { toast, Toaster } from "sonner";
 
 type Inputs = {
   program: string;
@@ -18,8 +22,8 @@ type Inputs = {
   academicPeriods: string;
   studyLeave: string;
   status: string;
-  startDate: Date;
-  degreeDate: Date;
+  startDate: string;
+  degreeDate: string;
   totalCost: number;
   additionalFinancial: boolean;
   percentageSupport: number;
@@ -36,8 +40,19 @@ const ApplicationForm = () => {
     handleSubmit,
     watch,
     control,
+    setValue,
     formState: { errors, isValid },
-  } = useForm<Inputs>({ mode: "onBlur" });
+  } = useForm<Inputs>({
+    mode: "onBlur",
+    defaultValues: {
+      level: carrerChoice,
+    },
+  });
+  const percentage = watch("percentageSupport");
+  const cashValue = watch("cashSupport");
+  const [confirmationStatus, setConfirmationStatus] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   const modalitySelect = [
     { value: "face", label: t("application_3_msg6") },
@@ -57,8 +72,30 @@ const ApplicationForm = () => {
     { value: "notApplied", label: t("application_3_msg21") },
   ];
 
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+    setConfirmationStatus(true);
+    const startDate = dayjs(watch().startDate).format("YYYY-MM-DD");
+    const degreeDate = dayjs(watch().degreeDate).format("YYYY-MM-DD");
+    setValue("startDate", startDate);
+    setValue("degreeDate", degreeDate);
+    toast.success(t("application_3_msg28"));
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    // console.log(data);
+    toast.success(t("application_3_msg29"));
+    setTimeout(() => {
+      navigate(`/application/${id}/form/sent`, { state: data });
+    }, 2000);
   };
 
   return (
@@ -110,10 +147,12 @@ const ApplicationForm = () => {
               {t("application_3_msg3")}
             </label>
             <input
-              {...register("level")}
+              {...(register("level"),
+              {
+                disabled: true,
+              })}
               defaultValue={carrerChoice}
               className="border-b p-2 border-b-primary-10 rounded-md focus:outline-none focus:border-primary-30 focus:border-b-2 transition-colors dark:disabled:bg-gray-20 dark:disabled:text-primary-50"
-              disabled
             />
           </div>
           {/* Justification (description) */}
@@ -444,8 +483,12 @@ const ApplicationForm = () => {
             <label className="text-gray-30 text-sm text-start dark:text-gray-20">
               {t("application_3_msg26")}
             </label>
-            <div className="flex items-center gap-6">
-              <div className="flex flex-col gap-2">
+            <div className="flex gap-4">
+              <div
+                className={`flex flex-col gap-2 ${
+                  cashValue > 0 || cashValue < 0 ? "hidden" : null
+                }`}
+              >
                 <section className="flex items-center gap-2">
                   <label
                     className="text-gray-30 text-xs text-start dark:text-gray-20"
@@ -480,7 +523,11 @@ const ApplicationForm = () => {
                   </span>
                 )}
               </div>
-              <div className="flex flex-col gap-2">
+              <div
+                className={`flex flex-col gap-2 ${
+                  percentage > 0 || percentage < 0 ? "hidden" : null
+                }`}
+              >
                 <section className="flex items-center gap-2">
                   <label
                     className="text-gray-30 text-xs text-start dark:text-gray-20"
@@ -492,7 +539,9 @@ const ApplicationForm = () => {
                     type="number"
                     defaultValue={0}
                     autoComplete="off"
-                    className="input-standard"
+                    className={`input-standard ${
+                      percentage > 0 ? "hidden" : null
+                    }`}
                     {...register("cashSupport", {
                       required: {
                         value: true,
@@ -503,8 +552,8 @@ const ApplicationForm = () => {
                         message: "Fill a higher value",
                       },
                       maxLength: {
-                        value: 3,
-                        message: "Maximum 3 characters in this field",
+                        value: 10,
+                        message: "Maximum 10 characters in this field",
                       },
                     })}
                   />
@@ -518,15 +567,37 @@ const ApplicationForm = () => {
             </div>
           </div>
           <button
-            type="submit"
-            className="btn self-center mt-4"
+            type="button"
+            className={`btn self-center mt-4 ${
+              confirmationStatus ? "hidden" : ""
+            }`}
             disabled={!isValid}
+            onClick={showModal}
+          >
+            Check
+          </button>
+          <button
+            className={`btn self-center mt-4 ${
+              !confirmationStatus ? "hidden" : ""
+            }`}
+            type={"submit"}
           >
             {t("application_2_msg6")}
           </button>
         </div>
         <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>
+      <Modal
+        title={t("application_3_msg30")}
+        open={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okText="OK"
+        cancelText="Cancel"
+      >
+        <p>{t("application_3_msg31")}</p>
+      </Modal>
+      <Toaster richColors expand={false} />
     </div>
   );
 };

@@ -93,6 +93,10 @@ const resources = {
         "If yes, please indicate the percentage or amount of support per academic period during this year",
       application_3_msg27:
         "The time limit to fill out the application is 30 minutes, after this time the session expires and you will have to start again",
+      application_3_msg28: "Form completed",
+      application_3_msg29: "Form submitted!",
+      application_3_msg30: "Info confirmation",
+      application_3_msg31: "Are you sure you want to continue?",
     },
   },
   es: {
@@ -191,6 +195,10 @@ const resources = {
         "En caso afirmativo, indique el porcentaje o la cantidad de apoyo por período académico durante este año:",
       application_3_msg27:
         "Usted tiene 30 minutos para completar la solicitud, después de este período de tiempo la sesión expira y usted tendrá que iniciar de nuevo.",
+      application_3_msg28: "El formulario completado",
+      application_3_msg29: "El formulario ha sido enviado",
+      application_3_msg30: "Confirmación de información",
+      application_3_msg31: "Estás seguro/a de continuar?",
     },
   },
 };
