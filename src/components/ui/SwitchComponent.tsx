@@ -1,10 +1,16 @@
 import { Control, Controller } from "react-hook-form";
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import {
+  CheckOutlined,
+  CloseOutlined,
+  MoonFilled,
+  SunFilled,
+} from "@ant-design/icons";
 import { Space, Switch } from "antd";
 
 interface RHSwitchProps {
   control: Control<any>;
   name: string;
+  onChangeExternal?: (checked: boolean) => void | undefined;
 }
 
 const SwitchComponent = (props: RHSwitchProps) => {
@@ -14,7 +20,7 @@ const SwitchComponent = (props: RHSwitchProps) => {
       name={props.name}
       defaultValue={false}
       render={({ field: { value, onChange } }) => {
-        return (
+        return props.name === "additionalFinancial" ? (
           <Space>
             <Switch
               checked={value}
@@ -22,6 +28,21 @@ const SwitchComponent = (props: RHSwitchProps) => {
               checkedChildren={<CheckOutlined />}
               unCheckedChildren={<CloseOutlined />}
               className="dark:bg-gray-30"
+            />
+          </Space>
+        ) : (
+          <Space>
+            <Switch
+              checked={value}
+              onChange={(checked) => {
+                onChange(checked);
+                if (props.onChangeExternal) props.onChangeExternal(checked);
+              }}
+              checkedChildren={<MoonFilled />}
+              unCheckedChildren={<SunFilled />}
+              style={{
+                backgroundColor: !value ? "#f9d005df" : "#013cdf",
+              }}
             />
           </Space>
         );

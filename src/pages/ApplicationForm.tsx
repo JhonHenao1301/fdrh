@@ -1,16 +1,15 @@
+import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Inputs } from "../types/Inputs";
+import { Modal } from "antd";
+import { toast, Toaster } from "sonner";
+import dayjs from "dayjs";
 import UserInfo from "../components/ui/UserInfo";
 import DatePickerComponent from "../components/ui/DatePicker";
 import SwitchComponent from "../components/ui/SwitchComponent";
 import SelectComponent from "../components/ui/SelectComponent";
-import dayjs from "dayjs";
-import { useState } from "react";
-import { Modal } from "antd";
-import { toast, Toaster } from "sonner";
-import TextArea from "antd/es/input/TextArea";
 
 const ApplicationForm = () => {
   const { id } = useParams();
